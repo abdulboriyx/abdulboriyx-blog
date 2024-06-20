@@ -1,0 +1,112 @@
+/* Font Face */
+@font-face {
+  font-family: 'iFont-sf-dmedium';
+  src: url(font/San-Francisco-Pro-Fonts-master/SF-Pro-Display-Medium.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'iFont-sf-dregular';
+  src: url(font/San-Francisco-Pro-Fonts-master/SF-Pro-Display-Regular.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'iFont-sf-rmedium';
+  src: url(font/San-Francisco-Pro-Fonts-master/SF-Pro-Rounded-Medium.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'iFont-sf-rregular';
+  src: url(font/San-Francisco-Pro-Fonts-master/SF-Pro-Rounded-Regular.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'iFont-sf-tmedium';
+  src: url(font/San-Francisco-Pro-Fonts-master/SF-Pro-Text-Medium.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'iFont-sf-tregular';
+  src: url(font/San-Francisco-Pro-Fonts-master/SF-Pro-Text-Regular.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Add similar @font-face rules for other fonts */
+
+/* Navbar */
+body {
+  background-color: #fff;
+}
+#navbar {
+  background-color: #fff;
+
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+}
+
+.navbar-list {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-right: auto;
+}
+
+.navbar-list-list {
+  padding: 10px 30px;
+  font-family: 'iFont-sf-dregular', sans-serif;
+  font-size: 20px;
+  color: #000;
+  opacity: 0.7;
+}
+
+.name-blog {
+  margin-right: auto; /* Adjusted margin */
+  font-family: 'iFont-sf-dregular', sans-serif;
+  font-size: 20px;
+  padding: 10px 15px;
+  margin: 10px auto;
+  color: #000;
+  opacity: 0.7;
+  text-align: left;
+}
+
+.navbar-list-list a {
+  text-decoration: none;
+  color: #000;
+  opacity: 0.7;
+}
+
+.navbar-list-list a:hover {
+  color: #fff;
+  opacity: 1;
+}
+/* blog */
+#blog {
+  width: 600px;
+  display: block;
+  margin: 10px auto;
+}
+.blog-content {
+  margin: 50px auto;
+}
+
+.blog-header {
+  font-family: 'iFont-sf-rregular', sans-serif;
+  font-weight: 700;
+}
+.blog-text {
+  font-family: 'iFont-sf-rmedium', sans-serif;
+  opacity: 0.8;
+  line-height: 1.8;
+}
