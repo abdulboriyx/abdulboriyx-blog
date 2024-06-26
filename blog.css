@@ -109,12 +109,20 @@ body {
 .blog-header {
   font-family: 'iFont-sf-rregular', sans-serif;
   font-weight: 700;
+  margin-left: 3px;
+}
+.header-small {
+  margin-left: 3px;
+  font-family: 'iFont-sf-rregular', sans-serif;
+  font-size: 24px;
 }
 .blog-text {
   font-family: 'iFont-sf-rmedium', sans-serif;
   opacity: 0.8;
-  line-height: 1.8;
+  line-height: 2;
+  font-size: 18px;
 }
+
 .blog-link {
   font-family: 'iFont-sf-rmedium', sans-serif;
   opacity: 0.8;
