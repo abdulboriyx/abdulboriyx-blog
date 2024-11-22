@@ -63,7 +63,7 @@ body {
 }
 
 .navbar-list-list {
-  padding: 10px 20px;
+  padding: 15px 20px;
   font-family: 'iFont-sf-dregular', sans-serif;
   font-size: 20px;
   color: #000;
@@ -74,7 +74,6 @@ body {
 }
 
 .name-blog {
-  margin-right: auto; /* Adjusted margin */
   font-family: 'iFont-sf-dregular', sans-serif;
   font-size: 20px;
   padding: 10px 15px;
@@ -214,7 +213,7 @@ body {
   list-style-type: none;
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .telegram-list .instagram-list {
   margin-left: -3px;
@@ -232,10 +231,10 @@ body {
 }
 
 .name-blog {
-  margin-right: auto; /* Adjusted margin */
   font-family: 'iFont-sf-dregular', sans-serif;
   font-size: 16px;
   margin-top: 10px;
+  margin-left: -10px;
   color: #000;
   opacity: 0.7;
   text-align: left;
@@ -269,11 +268,15 @@ body {
 .blog-header {
   font-family: 'iFont-sf-rregular', sans-serif;
   font-weight: 700;
+  font-size: 26px;
+  margin-left: 3px;
 }
 .blog-text {
   font-family: 'iFont-sf-rmedium', sans-serif;
-  opacity: 0.8;
+  opacity: 0.7;
   line-height: 1.8;
+  margin-left: 5px;
+  font-size: 18px;
 }
 .blog-link {
   font-family: 'iFont-sf-rmedium', sans-serif;
