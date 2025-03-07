@@ -149,6 +149,12 @@ body {
   object-fit: cover;
 }
 
+.img {
+  width: 600px;
+  height: 400px;
+  object-fit: contain;
+}
+
 
 @media (max-width: 480px) {
 /* Font Face */
