@@ -128,6 +128,14 @@ body {
   line-height: 1.8;
 
 }
+.blog-link-uz {
+  font-family: 'iFont-sf-rmedium', sans-serif;
+  opacity: 0.8;
+  line-height: 1.8;
+}
+.song-lyrics {
+  white-space: pre-line;
+}
 
 .link-logo {
   font-family: 'iFont-sf-dregular', sans-serif;
@@ -289,6 +297,11 @@ body {
   opacity: 0.8;
   line-height: 1.8;
 
+}
+.blog-link-uz {
+  font-family: 'iFont-sf-rmedium', sans-serif;
+  opacity: 0.8;
+  line-height: 1.8;
 }
 
 .link-logo {
