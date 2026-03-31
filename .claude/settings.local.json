@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/zerozae/Desktop/abdulboriyx-blog-main -not -path */.git/* -type d)"
+    ]
+  }
+}
