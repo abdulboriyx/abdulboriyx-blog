@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Wesley’s Theory — Flavor C</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #ffffff;
+    --accent: #b4312a;
+    --muted: #9a9a95;
+    --grid: rgba(0,0,0,0.035);
+    --serif: "Times New Roman", Times, serif;
+    --mono: "Courier New", ui-monospace, monospace;
+  }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 64px 64px;
+    min-height: 100vh;
+  }
+
+  .page { position: relative; min-height: 100vh; }
+
+  /* Corner marks */
+  .name {
+    position: absolute; top: 40px; left: 40px;
+    font-size: 22px; font-style: italic; letter-spacing: -0.3px;
+    text-decoration: none; color: var(--ink);
+  }
+  .nav {
+    position: absolute; top: 44px; right: 40px;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--muted);
+    display: flex; gap: 20px;
+  }
+  .nav a { color: var(--muted); text-decoration: none; }
+  .nav a:hover { color: var(--ink); }
+  .nav .rss { color: var(--accent); }
+
+  /* Home: list */
+  .list-wrap { padding: 132px 24px 80px; }
+  .list-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+  .list-head {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--muted);
+    display: flex; justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .list a {
+    display: grid; grid-template-columns: 1fr auto;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--grid);
+    align-items: baseline;
+    text-decoration: none; color: var(--ink);
+    transition: padding 0.15s ease;
+  }
+  .list a:hover { padding-left: 6px; }
+  .list .t { font-size: 17px; }
+  .list .d { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
+  /* Post page */
+  .post-nav-left {
+    position: absolute; top: 28px; left: 32px;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none;
+  }
+  .post-nav-left .arrow { color: var(--accent); }
+  .post-nav-left .label { color: var(--muted); }
+  .post-meta {
+    position: absolute; top: 28px; right: 32px;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--muted);
+  }
+  .post { max-width: 600px; margin: 0 auto; padding: 120px 24px 80px; }
+  .post h1 {
+    font-size: 60px; line-height: 1; letter-spacing: -1.8px;
+    margin: 0; font-weight: 400; font-style: italic;
+  }
+  .post .dek {
+    font-size: 18px; line-height: 1.45; color: #555;
+    margin-top: 24px; font-style: italic;
+  }
+  .post .rule { width: 28px; height: 1px; background: var(--ink); margin: 44px 0; }
+  .post p { font-size: 17px; line-height: 1.7; margin: 0 0 20px; }
+  .post p .dropcap {
+    float: left; font-size: 58px; line-height: 0.9;
+    padding-right: 10px; padding-top: 6px;
+    font-style: italic;
+  }
+  .post a.link {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+  }
+
+  /* Page break between home + post when printing */
+  .pagebreak { page-break-before: always; break-before: page; }
+
+  /* Print: clean slate, no background grid, tight margins */
+  @media print {
+    body { background-image: none; }
+    .page { min-height: auto; }
+    .list a:hover { padding-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HOME ───────────────────────────────────────────────── -->
+<section class="page" id="home">
+  <a href="#home" class="name">Wesley’s Theory.</a>
+  <div class="nav">
+    <a href="#">About</a>
+    <a href="#">Archive</a>
+    <a href="#" class="rss">RSS</a>
+  </div>
+
+  <div class="list-wrap">
+    <div class="list-inner">
+      <div class="list-head">
+        <span>— Recent</span><span>10 entries</span>
+      </div>
+      <nav class="list">
+        <a href="#post"><span class="t">Wesley’s Theory</span><span class="d">Apr 12</span></a>
+        <a href="#"><span class="t">Inspirations</span><span class="d">Mar 28</span></a>
+        <a href="#"><span class="t">Larry &amp; Sergei</span><span class="d">Mar 04</span></a>
+        <a href="#"><span class="t">Notes on Going Home</span><span class="d">Feb 17</span></a>
+        <a href="#"><span class="t">A Quiet Theory of Focus</span><span class="d">Jan 30</span></a>
+        <a href="#"><span class="t">On Being Early</span><span class="d">Jan 11</span></a>
+        <a href="#"><span class="t">Letter to a Younger Student</span><span class="d">Dec 22, 2025</span></a>
+        <a href="#"><span class="t">The Room, the Desk, the Lamp</span><span class="d">Nov 30, 2025</span></a>
+        <a href="#"><span class="t">What the Quiet Year Taught Me</span><span class="d">Oct 14, 2025</span></a>
+        <a href="#"><span class="t">Against the Feed</span><span class="d">Sep 02, 2025</span></a>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- ── POST ───────────────────────────────────────────────── -->
+<section class="page pagebreak" id="post">
+  <a href="#home" class="post-nav-left"><span class="arrow">←</span> <span class="label">Index</span></a>
+  <div class="post-meta">12 min · Apr 12</div>
+
+  <article class="post">
+    <h1>Wesley’s Theory</h1>
+    <div class="dek">On consciousness, a documentary at lunchtime, and what it means to become curious again.</div>
+    <div class="rule"></div>
+
+    <p><span class="dropcap">I</span>t was either Tuesday or Thursday afternoon. I was on campus since there were classes. I came into the convenience store, bought my food, and went out to eat. Usually, I watch videos on YouTube while eating lunch, especially if I am alone.</p>
+    <p>The documentary from Google DeepMind had been popping up for several days. I decided to watch it, and it literally changed my interest. It was about AlphaGo and how it won against the world champion Lee Sedol—see <a href="#" class="link">the film</a>.</p>
+  </article>
+</section>
+
+</body>
+</html>

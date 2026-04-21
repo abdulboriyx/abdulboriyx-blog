@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Direction 02 — The Quiet Page (refined)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f0eee9; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const Q = {
+  ink: '#1a1a1a',
+  paper: '#ffffff',
+  paperWarm: '#faf8f3',
+  accent: '#b4312a',
+  muted: '#9a9a95',
+  mutedText: '#555',
+  gridLine: 'rgba(0,0,0,0.035)',
+  serif: '"Times New Roman", Times, serif',
+  mono: '"Courier New", ui-monospace, monospace',
+};
+
+const gridBg = (col = Q.gridLine, size = 64) => ({
+  backgroundImage: `linear-gradient(${col} 1px, transparent 1px), linear-gradient(90deg, ${col} 1px, transparent 1px)`,
+  backgroundSize: `${size}px ${size}px`,
+});
+
+const W = 1100, H = 760;
+
+// ─── Shared bits ───────────────────────────────────────────────
+function CornerHeader({ left = 'Wesley’s Theory', right = ['About', 'Archive', 'RSS'], accentIndex = 2 }) {
+  return (
+    <>
+      <div style={{ position: 'absolute', top: 28, left: 32, fontFamily: Q.mono, fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', color: Q.muted }}>{left}</div>
+      <div style={{ position: 'absolute', top: 28, right: 32, fontFamily: Q.mono, fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', color: Q.muted, display: 'flex', gap: 20 }}>
+        {right.map((r, i) => (
+          <span key={i} style={i === accentIndex ? { color: Q.accent } : null}>{r}</span>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function PostList({ posts, showCount = false }) {
+  return (
+    <div style={{ maxWidth: 560, margin: '0 auto', padding: '0 24px' }}>
+      {showCount && (
+        <div style={{ fontFamily: Q.mono, fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', color: Q.muted, marginBottom: 16, display: 'flex', justifyContent: 'space-between' }}>
+          <span>Contents</span><span>{posts.length} entries</span>
+        </div>
+      )}
+      {posts.map(([t, d], i) => (
+        <div key={i} style={{
+          display: 'grid', gridTemplateColumns: '1fr auto',
+          padding: '12px 0',
+          borderBottom: `1px solid ${Q.gridLine}`,
+          alignItems: 'baseline',
+        }}>
+          <span style={{ fontSize: 17 }}>{t}</span>
+          <span style={{ fontFamily: Q.mono, fontSize: 11, color: Q.muted }}>{d}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+const POSTS = [
+  ['Wesley’s Theory',              'Apr 12'],
+  ['Inspirations',                  'Mar 28'],
+  ['Larry & Sergei',                'Mar 04'],
+  ['Notes on Going Home',           'Feb 17'],
+  ['A Quiet Theory of Focus',       'Jan 30'],
+  ['On Being Early',                'Jan 11'],
+  ['Letter to a Younger Student',   'Dec 22, 2025'],
+  ['The Room, the Desk, the Lamp',  'Nov 30, 2025'],
+  ['What the Quiet Year Taught Me', 'Oct 14, 2025'],
+  ['Against the Feed',              'Sep 02, 2025'],
+];
+
+// ─── A. Just the name ───────────────────────────────────────────
+// Masthead is only the author's name. Nothing else. List does the rest.
+function HomeA() {
+  return (
+    <div style={{ width: '100%', height: '100%', background: Q.paper, color: Q.ink, fontFamily: Q.serif, ...gridBg(), overflow: 'hidden', position: 'relative' }}>
+      <CornerHeader />
+      <div style={{ padding: '160px 24px 0', textAlign: 'center' }}>
+        <div style={{ fontSize: 72, fontStyle: 'italic', letterSpacing: -1.5, lineHeight: 1 }}>
+          Wesley’s Theory.
+        </div>
+      </div>
+      <div style={{ width: 40, height: 1, background: Q.ink, margin: '64px auto' }} />
+      <PostList posts={POSTS} />
+    </div>
+  );
+}
+
+// ─── B. Year + name ─────────────────────────────────────────────
+// A tiny mono meta line above the name gives place/time without talking.
+function HomeB() {
+  return (
+    <div style={{ width: '100%', height: '100%', background: Q.paper, color: Q.ink, fontFamily: Q.serif, ...gridBg(), overflow: 'hidden', position: 'relative' }}>
+      <CornerHeader />
+      <div style={{ padding: '150px 24px 0', textAlign: 'center' }}>
+        <div style={{ fontFamily: Q.mono, fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: Q.muted, marginBottom: 20 }}>
+          Journal · 2024 —
+        </div>
+        <div style={{ fontSize: 72, fontStyle: 'italic', letterSpacing: -1.5, lineHeight: 1 }}>
+          Wesley’s Theory.
+        </div>
+      </div>
+      <div style={{ width: 40, height: 1, background: Q.ink, margin: '64px auto' }} />
+      <PostList posts={POSTS} showCount />
+    </div>
+  );
+}
+
+// ─── C. No masthead — just the list ─────────────────────────────
+// Most extreme quiet. Corner name IS the masthead. List gets pulled up.
+function HomeC() {
+  return (
+    <div style={{ width: '100%', height: '100%', background: Q.paper, color: Q.ink, fontFamily: Q.serif, ...gridBg(), overflow: 'hidden', position: 'relative' }}>
+      <div style={{ position: 'absolute', top: 40, left: 40, fontSize: 22, fontStyle: 'italic', letterSpacing: -0.3 }}>Wesley’s Theory.</div>
+      <div style={{ position: 'absolute', top: 44, right: 40, fontFamily: Q.mono, fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', color: Q.muted, display: 'flex', gap: 20 }}>
+        <span>About</span><span>Archive</span><span style={{ color: Q.accent }}>RSS</span>
+      </div>
+      <div style={{ padding: '132px 24px 0' }}>
+        <div style={{ maxWidth: 560, margin: '0 auto', fontFamily: Q.mono, fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', color: Q.muted, marginBottom: 12, display: 'flex', justifyContent: 'space-between', padding: '0 24px' }}>
+          <span>— Recent</span><span>{POSTS.length} entries</span>
+        </div>
+        <PostList posts={POSTS} />
+      </div>
+    </div>
+  );
+}
+
+// ─── D. Warm paper + name ───────────────────────────────────────
+// Same as B but on the warm paper tone you currently have — for comparison.
+function HomeD() {
+  return (
+    <div style={{ width: '100%', height: '100%', background: Q.paperWarm, color: Q.ink, fontFamily: Q.serif, ...gridBg('rgba(0,0,0,0.045)', 64), overflow: 'hidden', position: 'relative' }}>
+      <CornerHeader />
+      <div style={{ padding: '150px 24px 0', textAlign: 'center' }}>
+        <div style={{ fontFamily: Q.mono, fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: Q.muted, marginBottom: 20 }}>
+          Journal · 2024 —
+        </div>
+        <div style={{ fontSize: 72, fontStyle: 'italic', letterSpacing: -1.5, lineHeight: 1 }}>
+          Wesley’s Theory.
+        </div>
+      </div>
+      <div style={{ width: 40, height: 1, background: Q.ink, margin: '64px auto' }} />
+      <PostList posts={POSTS} showCount />
+    </div>
+  );
+}
+
+// ─── Post pages ─────────────────────────────────────────────────
+function PostBase({ paper = Q.paper, gridCol = Q.gridLine, dropCap = true, dropCapAccent = true, smallCaps = false, eyebrow = 'Essay No. 01' }) {
+  return (
+    <div style={{ width: '100%', height: '100%', background: paper, color: Q.ink, fontFamily: Q.serif, ...gridBg(gridCol), overflow: 'hidden', position: 'relative' }}>
+      <div style={{ position: 'absolute', top: 28, left: 32, fontFamily: Q.mono, fontSize: 10, letterSpacing: 2, textTransform: 'uppercase' }}>
+        <span style={{ color: Q.accent }}>←</span> <span style={{ color: Q.muted }}>Index</span>
+      </div>
+      <div style={{ position: 'absolute', top: 28, right: 32, fontFamily: Q.mono, fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', color: Q.muted }}>
+        12 min · Apr 12
+      </div>
+
+      <div style={{ maxWidth: 600, margin: '0 auto', padding: '120px 24px 0' }}>
+        {eyebrow && (
+          <div style={{ fontFamily: Q.mono, fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: Q.muted, marginBottom: 18 }}>{eyebrow}</div>
+        )}
+        <h1 style={{ fontSize: 60, lineHeight: 1, letterSpacing: -1.8, margin: 0, fontWeight: 400, fontStyle: 'italic' }}>
+          Wesley’s Theory
+        </h1>
+        <div style={{ fontSize: 18, lineHeight: 1.45, color: Q.mutedText, marginTop: 24, fontStyle: 'italic' }}>
+          On consciousness, a documentary at lunchtime, and what it means to become curious again.
+        </div>
+
+        <div style={{ width: 28, height: 1, background: Q.ink, margin: '44px 0' }} />
+
+        <p style={{ fontSize: 17, lineHeight: 1.7, margin: '0 0 20px' }}>
+          {dropCap ? (
+            <>
+              <span style={{ float: 'left', fontSize: 58, lineHeight: 0.9, paddingRight: 10, paddingTop: 6, color: dropCapAccent ? Q.accent : Q.ink, fontStyle: 'italic' }}>I</span>
+              t was either Tuesday or Thursday afternoon.
+            </>
+          ) : smallCaps ? (
+            <>
+              <span style={{ fontVariant: 'small-caps', letterSpacing: 1.5, fontSize: 15 }}>It was either Tuesday or Thursday afternoon.</span>
+            </>
+          ) : (
+            <>It was either Tuesday or Thursday afternoon.</>
+          )}
+          {' '}I was on campus since there were classes. I came into the convenience store, bought my food, and went out to eat. Usually, I watch videos on YouTube while eating lunch, especially if I am alone.
+        </p>
+        <p style={{ fontSize: 17, lineHeight: 1.7, margin: '0 0 20px' }}>
+          The documentary from Google DeepMind had been popping up for several days. I decided to watch it, and it literally changed my interest. It was about AlphaGo and how it won against the world champion Lee Sedol—see <span style={{ color: Q.accent, borderBottom: `1px solid ${Q.accent}` }}>the film</span>.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+const PostA = () => <PostBase dropCap dropCapAccent />;
+const PostB = () => <PostBase dropCap={false} smallCaps eyebrow="April 12, 2026 · 12 min" />;
+const PostC = () => <PostBase dropCap dropCapAccent={false} eyebrow={null} />;
+const PostD = () => <PostBase paper={Q.paperWarm} gridCol="rgba(0,0,0,0.045)" dropCap dropCapAccent />;
+
+// ─── Canvas ─────────────────────────────────────────────────────
+function Intro() {
+  return (
+    <div style={{ padding: '0 60px 40px', maxWidth: 1100 }}>
+      <div style={{ fontFamily: Q.mono, fontSize: 11, letterSpacing: 3, textTransform: 'uppercase', color: 'rgba(60,50,40,0.6)', marginBottom: 12 }}>
+        Direction 02 · refined · tagline removed
+      </div>
+      <div style={{ fontSize: 42, lineHeight: 1.05, letterSpacing: -1, color: '#2a211b', fontFamily: Q.serif }}>
+        Four flavors of<br/>“The Quiet Page.”
+      </div>
+      <div style={{ marginTop: 16, maxWidth: 760, fontSize: 15, lineHeight: 1.55, color: '#4a4038' }}>
+        You said the tagline felt unnecessary, so the masthead is now just <em>you</em>. Each column shows a home/post pair. Variations are <b>A</b> just the name, <b>B</b> name + tiny mono date-stamp, <b>C</b> no masthead at all (corner name only), and <b>D</b> the same as B but on your current warm paper — so you can compare clinical white vs. warm cream with the same layout. Pick a letter and I’ll take it to hi-fi.
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <DesignCanvas>
+      <Intro />
+
+      <DCSection title="A — Just the name" subtitle="Maximum restraint. The name is the masthead; the list speaks for itself.">
+        <DCArtboard label="A / Home" width={W} height={H}><HomeA /></DCArtboard>
+        <DCArtboard label="A / Post — red drop-cap" width={W} height={H}><PostA /></DCArtboard>
+        <div style={{ width: 240, paddingTop: 20 }}>
+          <DCPostIt top={0} left={0} rotate={-2} width={230}>
+            The <b>loudest quiet option.</b> Your name, italicised, is the whole hero. Nothing to read before the list.
+          </DCPostIt>
+        </div>
+      </DCSection>
+
+      <DCSection title="B — Name + date-stamp" subtitle="One tiny mono line gives it context (“Journal · 2024 —”) without describing anything.">
+        <DCArtboard label="B / Home" width={W} height={H}><HomeB /></DCArtboard>
+        <DCArtboard label="B / Post — small-caps opener" width={W} height={H}><PostB /></DCArtboard>
+        <div style={{ width: 240, paddingTop: 20 }}>
+          <DCPostIt top={0} left={0} rotate={2} width={230}>
+            <b>Recommended.</b> Keeps the silence but lets a reader land and immediately know <i>whose</i> this is and <i>when</i>.
+          </DCPostIt>
+          <DCPostIt top={200} left={8} rotate={-3} width={230}>
+            Post version here drops the red drop-cap for a <b>small-caps opener</b> — more bookish, less magaziney.
+          </DCPostIt>
+        </div>
+      </DCSection>
+
+      <DCSection title="C — No masthead at all" subtitle="Name becomes a corner mark. You land straight in the list.">
+        <DCArtboard label="C / Home" width={W} height={H}><HomeC /></DCArtboard>
+        <DCArtboard label="C / Post — no eyebrow, neutral drop-cap" width={W} height={H}><PostC /></DCArtboard>
+        <div style={{ width: 240, paddingTop: 20 }}>
+          <DCPostIt top={0} left={0} rotate={-3} width={230}>
+            The <b>most extreme</b> minimal. Feels like opening a notebook mid-page. Risk: can feel incomplete on first visit.
+          </DCPostIt>
+        </div>
+      </DCSection>
+
+      <DCSection title="D — Warm paper, same as B" subtitle="Same layout as B but on your current cream/grid background. Lets you A/B the paper color with one variable held constant.">
+        <DCArtboard label="D / Home — warm paper" width={W} height={H}><HomeD /></DCArtboard>
+        <DCArtboard label="D / Post — warm paper" width={W} height={H}><PostD /></DCArtboard>
+        <div style={{ width: 240, paddingTop: 20 }}>
+          <DCPostIt top={0} left={0} rotate={2} width={230}>
+            Same structure, different temperature. If you want to keep the warmth of the old site but trade in the bones.
+          </DCPostIt>
+        </div>
+      </DCSection>
+
+      <DCSection title="How to choose" subtitle="Decide on two axes independently.">
+        <div style={{ width: 760, padding: '8px 0 80px', fontFamily: Q.serif, fontSize: 16, lineHeight: 1.65, color: '#2a211b' }}>
+          <p style={{ margin: '0 0 14px' }}>
+            <b>Masthead:</b> A (just name) / B (name + date-stamp) / C (no masthead). <b>B</b> is the safest — silent but oriented. <b>A</b> if you want your name to be the cover. <b>C</b> if you want the blog to feel like a notebook left open.
+          </p>
+          <p style={{ margin: '0 0 14px' }}>
+            <b>Paper:</b> pure white (A/B/C) or warm cream (D). White reads as <i>clinical, modern, confident</i>; warm cream reads as <i>personal, bookish, slower</i>. Both are right for different reasons. You can also keep both and make warm the default, white for long essays — trivial with a CSS variable.
+          </p>
+          <p style={{ margin: 0, color: '#6a5e52', fontStyle: 'italic' }}>
+            Tell me which letter (or hybrid, e.g. “B on D’s paper”) and I’ll take it to a tighter single-page mockup you can hand to code.
+          </p>
+        </div>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

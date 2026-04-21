@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Blog redesign — wireframe directions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f0eee9; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="frames/direction-01-grid.jsx"></script>
+<script type="text/babel" src="frames/direction-02-column.jsx"></script>
+<script type="text/babel" src="frames/direction-03-marginalia.jsx"></script>
+<script type="text/babel" src="frames/direction-04-manifesto.jsx"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const W = 1000, H = 680;
+
+function Frame({ children }) {
+  return (
+    <DCArtboard width={W} height={H}>
+      {children}
+    </DCArtboard>
+  );
+}
+
+function Intro() {
+  return (
+    <div style={{ padding: '0 60px 40px', maxWidth: 1100 }}>
+      <div style={{ fontFamily: '"Courier New", monospace', fontSize: 11, letterSpacing: 3, textTransform: 'uppercase', color: 'rgba(60,50,40,0.6)', marginBottom: 12 }}>
+        Wireframes · low-fi · Swiss / typographic
+      </div>
+      <div style={{ fontSize: 42, lineHeight: 1.05, letterSpacing: -1, color: '#2a211b', fontFamily: '"Times New Roman", serif' }}>
+        Four directions for your<br/>personal blog redesign.
+      </div>
+      <div style={{ marginTop: 16, maxWidth: 760, fontSize: 15, lineHeight: 1.55, color: '#4a4038' }}>
+        Each direction shows <em>homepage</em> + <em>post page</em>. All four keep the same brief: <strong>book-like serif, visible grid, single narrow or asymmetric column, confident type, restrained color.</strong> They differ in <em>structure</em>, <em>scale</em>, and <em>personality</em>. Pan & pinch to move around. Note the tradeoffs in the yellow stickies; pick the one (or mix) you want to take to hi-fi.
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <DesignCanvas>
+      <Intro />
+
+      <DCSection
+        title="Direction 01 — The Index"
+        subtitle="Printed table of contents. Dense grid, mono meta, numbered entries. Works if you want the blog to read like a real journal issue."
+      >
+        <DCArtboard label="01 / Home — index" width={W} height={H}><D1Home /></DCArtboard>
+        <DCArtboard label="01 / Post — asymmetric header" width={W} height={H}><D1Post /></DCArtboard>
+        <div style={{ width: 240, paddingTop: 20 }}>
+          <DCPostIt top={0} left={0} rotate={-3} width={230}>
+            Strongest <b>archive feeling</b>. Five-column row scales as you add posts. Masthead doubles as identity.
+          </DCPostIt>
+          <DCPostIt top={200} left={8} rotate={2} width={230}>
+            Risk: feels like a <b>journal</b>, not a person. Mitigate with one warm photo or handwriting mark.
+          </DCPostIt>
+        </div>
+      </DCSection>
+
+      <DCSection
+        title="Direction 02 — The Quiet Page"
+        subtitle="Narrow centered column, lots of air, one tiny accent (ink red). The most restrained. Closest to the paulgraham.com / samaltman mood."
+      >
+        <DCArtboard label="02 / Home — centered list" width={W} height={H}><D2Home /></DCArtboard>
+        <DCArtboard label="02 / Post — book column" width={W} height={H}><D2Post /></DCArtboard>
+        <div style={{ width: 240, paddingTop: 20 }}>
+          <DCPostIt top={0} left={0} rotate={-2} width={230}>
+            <b>Quietest</b> of the four. Pure white, one accent toggle. Reads beautifully on mobile with zero changes.
+          </DCPostIt>
+          <DCPostIt top={200} left={10} rotate={3} width={230}>
+            Risk: can feel <b>anonymous</b>. The italic masthead + hanging-date list are what carry the personality.
+          </DCPostIt>
+        </div>
+      </DCSection>
+
+      <DCSection
+        title="Direction 03 — The Archive"
+        subtitle="Vertical-rail identity, year-foldered archive, marginalia column on the post page. Most grid-heavy. Confident without being loud."
+      >
+        <DCArtboard label="03 / Home — archive by year" width={W} height={H}><D3Home /></DCArtboard>
+        <DCArtboard label="03 / Post — marginalia column" width={W} height={H}><D3Post /></DCArtboard>
+        <div style={{ width: 240, paddingTop: 20 }}>
+          <DCPostIt top={0} left={0} rotate={-2} width={230}>
+            The vertical-rail label is the <b>memorable detail</b>. Marginalia column on posts is rare and cheap to build.
+          </DCPostIt>
+          <DCPostIt top={200} left={8} rotate={2} width={230}>
+            Requires disciplined content — every post needs a short margin summary. Good forcing function.
+          </DCPostIt>
+        </div>
+      </DCSection>
+
+      <DCSection
+        title="Direction 04 — The Manifesto"
+        subtitle="Huge display serif on both pages. Logbook-style list. Biggest personality, still zero color. Takes the most confidence to wear."
+      >
+        <DCArtboard label="04 / Home — display serif manifesto" width={W} height={H}><D4Home /></DCArtboard>
+        <DCArtboard label="04 / Post — cover-title treatment" width={W} height={H}><D4Post /></DCArtboard>
+        <div style={{ width: 240, paddingTop: 20 }}>
+          <DCPostIt top={0} left={0} rotate={-3} width={230}>
+            <b>Boldest</b>. The italic “slowly.” is a signature. Each post gets a poster-sized cover.
+          </DCPostIt>
+          <DCPostIt top={200} left={8} rotate={2} width={230}>
+            Risk: tone has to match. Works great if you write essays, odd if you write short notes. Consider pairing with 02 for notes.
+          </DCPostIt>
+        </div>
+      </DCSection>
+
+      <DCSection title="Recommendation" subtitle="What to do next.">
+        <div style={{ width: 760, padding: '8px 0 80px', fontFamily: '"Times New Roman", serif', fontSize: 16, lineHeight: 1.6, color: '#2a211b' }}>
+          <p style={{ margin: '0 0 14px' }}>
+            My pick: <b>Direction 03 (The Archive)</b> for the homepage — the vertical rail gives your site an identity nothing else in the “minimal blog” space has — paired with <b>Direction 02’s post page</b> for reading. That gets you a confident index and a quiet, book-like post.
+          </p>
+          <p style={{ margin: '0 0 14px' }}>
+            On the palette question: ship it in <b>pure-white clinical</b> mode, but build in the <b>ink-red accent</b> as a CSS variable you can flip for a single post (e.g. a big essay). You get both modes for the cost of one.
+          </p>
+          <p style={{ margin: 0, color: '#6a5e52', fontStyle: 'italic' }}>
+            When you pick a direction, I can push any of these to hi-fi (real type, live hover states, real content), or mix a hybrid — just say which parts from which number.
+          </p>
+        </div>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
