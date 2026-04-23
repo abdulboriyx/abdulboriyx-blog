@@ -1,7 +1,8 @@
 const ytSearch = (query) =>
   `https://www.youtube.com/results?search_query=${encodeURIComponent(`UzChess ${query}`)}`;
 
-export const CHESS_PLAYLIST_URL = "";
+export const CHESS_PLAYLIST_URL =
+  "https://www.youtube.com/watch?v=paooGUj7xAo&list=PLux_HYHKPZYo5YQ4XvsHZKpnKGE0LLa0z";
 
 export const chessCurriculum = [
   { title: "Shaxmat taxtasi va kataklar", level: "Boshlang'ich", url: ytSearch("shaxmat taxtasi kataklar"), source: "placeholder" },

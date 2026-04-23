@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tartibli o'qish</title>
+  <style>
+    :root {
+      --ink: #24211c;
+      --paper: #f6f1e6;
+      --line: #d8cfbd;
+      --sage: #5d7052;
+      --brick: #9a4f3f;
+      --blue: #365f7d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+
+    .top {
+      display: flex;
+      gap: 20px;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      margin-top: 8px;
+      font-size: clamp(32px, 6vw, 56px);
+      line-height: 1;
+    }
+
+    .muted {
+      color: rgba(36, 33, 28, 0.68);
+      line-height: 1.65;
+    }
+
+    .small {
+      font-size: 14px;
+    }
+
+    .label {
+      color: rgba(36, 33, 28, 0.55);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .day-box,
+    .frame {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.42);
+    }
+
+    .day-box {
+      min-width: 120px;
+      padding: 16px 20px;
+      background: white;
+    }
+
+    .day-number {
+      color: var(--sage);
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 20px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: white;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .tab {
+      border: 0;
+      border-radius: 4px;
+      background: transparent;
+      padding: 10px 12px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .tab.active {
+      background: var(--ink);
+      color: white;
+    }
+
+    .section {
+      display: none;
+      margin-top: 24px;
+    }
+
+    .stack {
+      gap: 20px;
+    }
+
+    .section.active {
+      display: grid;
+    }
+
+    .frame {
+      padding: 16px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .word {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+
+    .word-head {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .word strong {
+      color: var(--blue);
+      font-size: 18px;
+    }
+
+    .video {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .video h3 {
+      border-bottom: 1px solid var(--line);
+      padding: 12px 16px;
+      font-size: 16px;
+    }
+
+    .video-body {
+      padding: 18px 16px;
+      line-height: 1.6;
+    }
+
+    .ratio {
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .question {
+      border-bottom: 1px solid var(--line);
+      padding: 16px 0;
+    }
+
+    .question label {
+      display: block;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .answer {
+      width: 100%;
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: white;
+      padding: 10px 12px;
+    }
+
+    .primary {
+      border: 0;
+      border-radius: 6px;
+      background: var(--ink);
+      padding: 11px 18px;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .copy {
+      border: 1px solid var(--blue);
+      border-radius: 6px;
+      background: transparent;
+      padding: 9px 14px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .result-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+    }
+
+    .ok {
+      color: var(--sage);
+      font-weight: 700;
+    }
+
+    .bad {
+      color: var(--brick);
+      font-weight: 700;
+    }
+
+    @media (max-width: 720px) {
+      .top {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .two {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap top">
+      <div>
+        <p class="label">Boshlanish sanasi: <span id="start-date"></span></p>
+        <h1>Tartibli o'qish</h1>
+        <p class="muted" style="margin-top: 12px; max-width: 680px;">
+          Har kuni ingliz tili va matematikadan belgilangan darslar ochiladi. Shaxmat darslari doim ochiq.
+        </p>
+      </div>
+      <div class="day-box">
+        <p class="small muted">Bugungi kun</p>
+        <p class="day-number" id="day-number">1</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="tabs" aria-label="Fanlar">
+      <button class="tab active" type="button" data-tab="english">Ingliz tili</button>
+      <button class="tab" type="button" data-tab="math">Matematika</button>
+      <button class="tab" type="button" data-tab="chess">Shaxmat</button>
+    </nav>
+
+    <section class="section active stack" id="english"></section>
+    <section class="section stack" id="math"></section>
+    <section class="section stack" id="chess"></section>
+  </main>
+
+  <script type="module">
+    import { START_DATE, mathCurriculum } from "../data/math-curriculum.js";
+    import { CHESS_PLAYLIST_URL, chessCurriculum } from "../data/chess-curriculum.js";
+
+    var fallbackEnglish = {
+      topic: "Salomlashish va oddiy narsalar",
+      vocabulary: [
+        { word: "hello", uzbek: "salom", example: "Hello, Ali." },
+        { word: "book", uzbek: "kitob", example: "This is a book." },
+        { word: "pen", uzbek: "ruchka", example: "I have a pen." },
+        { word: "desk", uzbek: "parta", example: "The desk is brown." },
+        { word: "chair", uzbek: "stul", example: "This chair is small." },
+        { word: "teacher", uzbek: "o'qituvchi", example: "My teacher is kind." },
+        { word: "student", uzbek: "o'quvchi", example: "I am a student." },
+        { word: "school", uzbek: "maktab", example: "We go to school." },
+        { word: "bag", uzbek: "sumka", example: "My bag is black." },
+        { word: "red", uzbek: "qizil", example: "It is red." },
+        { word: "blue", uzbek: "ko'k", example: "The pen is blue." },
+        { word: "one", uzbek: "bir", example: "I have one book." },
+        { word: "two", uzbek: "ikki", example: "I see two pens." },
+        { word: "good", uzbek: "yaxshi", example: "This is good." },
+        { word: "yes", uzbek: "ha", example: "Yes, I am ready." }
+      ],
+      grammar: {
+        title: "This is ...",
+        explanation: "'This is ...' yaqin turgan bitta narsani tanishtirish uchun ishlatiladi.",
+        examples: ["This is a book.", "This is a pen.", "This is my bag."]
+      },
+      grammarTopics: [
+        {
+          title: "This is ...",
+          explanation: "'This is ...' yaqin turgan bitta narsani tanishtirish uchun ishlatiladi.",
+          examples: ["This is a book.", "This is a pen.", "This is my bag."]
+        },
+        {
+          title: "I have ...",
+          explanation: "'I have ...' o'quvchida bor narsani aytish uchun ishlatiladi.",
+          examples: ["I have a book.", "I have a pen.", "I have a blue bag."]
+        }
+      ],
+      quiz: [
+        { type: "fill-blank", prompt: "This is a ____.", answer: "book" },
+        { type: "fill-blank", prompt: "Hello so'zining ma'nosi nima?", answer: "salom" },
+        {
+          type: "matching",
+          prompt: "So'zlarni moslang",
+          pairs: [
+            { left: "pen", right: "ruchka" },
+            { left: "school", right: "maktab" },
+            { left: "teacher", right: "o'qituvchi" },
+            { left: "blue", right: "ko'k" },
+            { left: "two", right: "ikki" },
+            { left: "yes", right: "ha" },
+            { left: "student", right: "o'quvchi" },
+            { left: "chair", right: "stul" }
+          ]
+        }
+      ]
+    };
+
+    function getDayNumber() {
+      var start = new Date(START_DATE + "T00:00:00");
+      var now = new Date();
+      var current = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      var startDay = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+      return Math.max(1, Math.floor((current.getTime() - startDay.getTime()) / 86400000) + 1);
+    }
+
+    function readJson(key, fallback) {
+      try {
+        var raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+      } catch (error) {
+        return fallback;
+      }
+    }
+
+    function normalize(value) {
+      return String(value || "").trim().toLowerCase();
+    }
+
+    function getYouTubeId(url) {
+      try {
+        var parsed = new URL(url);
+        if (parsed.hostname.indexOf("youtu.be") !== -1) return parsed.pathname.replace("/", "");
+        if (parsed.hostname.indexOf("youtube.com") !== -1) return parsed.searchParams.get("v") || "";
+      } catch (error) {}
+      return "";
+    }
+
+    function getPlaylistId(url) {
+      try {
+        return new URL(url).searchParams.get("list") || "";
+      } catch (error) {
+        return "";
+      }
+    }
+
+    function expandQuestions(questions) {
+      return (questions || []).flatMap(function (question) {
+        if (question.type !== "matching") return [question];
+        return (question.pairs || []).map(function (pair) {
+          return {
+            type: "matching",
+            prompt: pair.left + " - mos javobni tanlang",
+            options: question.pairs.map(function (item) { return item.right; }),
+            answer: pair.right
+          };
+        });
+      });
+    }
+
+    function mathFallback(topics) {
+      return {
+        topic: topics.join(", "),
+        quiz: [
+          { type: "multiple-choice", prompt: "2 + 3 nechiga teng?", options: ["4", "5", "6", "7"], answer: "5" },
+          { type: "multiple-choice", prompt: "5 dan keyin qaysi son keladi?", options: ["4", "5", "6", "7"], answer: "6" },
+          { type: "multiple-choice", prompt: "3 ta olma va 1 ta olma jami nechta?", options: ["2", "3", "4", "5"], answer: "4" },
+          { type: "multiple-choice", prompt: "10 ichida eng katta son qaysi?", options: ["7", "8", "9", "10"], answer: "10" },
+          { type: "multiple-choice", prompt: "1, 2, 3, __. Bo'sh joyga qaysi son yoziladi?", options: ["4", "5", "6", "7"], answer: "4" },
+          { type: "multiple-choice", prompt: "6 - 2 nechiga teng?", options: ["3", "4", "5", "6"], answer: "4" },
+          { type: "multiple-choice", prompt: "Qaysi biri kichik?", options: ["2", "5", "7", "9"], answer: "2" },
+          { type: "multiple-choice", prompt: "4 + 0 nechiga teng?", options: ["0", "3", "4", "5"], answer: "4" },
+          { type: "multiple-choice", prompt: "8 dan oldin qaysi son keladi?", options: ["6", "7", "8", "9"], answer: "7" },
+          { type: "multiple-choice", prompt: "2 va 2 ni qo'shsak nima bo'ladi?", options: ["3", "4", "5", "6"], answer: "4" }
+        ]
+      };
+    }
+
+    async function loadGenerated(subject, day, topics, fallback) {
+      var cacheKey = "content_" + subject + "_day_" + day;
+      var cached = readJson(cacheKey, null);
+      if (cached) return cached;
+
+      try {
+        var previousTopics = readJson("used_topics_" + subject, []);
+        var response = await fetch("/api/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ subject: subject, day: day, topics: topics, previousTopics: previousTopics })
+        });
+        if (!response.ok) throw new Error("API mavjud emas");
+        var data = await response.json();
+        localStorage.setItem(cacheKey, JSON.stringify(data));
+        return data;
+      } catch (error) {
+        return fallback;
+      }
+    }
+
+    function videoCard(topic) {
+      var id = topic.source === "real" ? getYouTubeId(topic.url) : "";
+      if (id) {
+        return '<article class="frame video"><h3>' + topic.title + '</h3><div class="ratio"><iframe src="https://www.youtube.com/embed/' + id + '" title="' + topic.title + '" allowfullscreen></iframe></div></article>';
+      }
+      if (topic.source === "khan") {
+        return '<article class="frame video"><h3>' + topic.title + '</h3><div class="video-body small muted"><p>Bu mavzu Khan Academy Uzbek darsi orqali o‘qiladi.</p><p style="margin-top: 10px;"><a href="' + topic.url + '" target="_blank" rel="noreferrer">Khan Academy darsini ochish</a></p></div></article>';
+      }
+      return '<article class="frame video"><h3>' + topic.title + '</h3><div class="video-body small muted"><p>Vaqtincha qidiruv havolasi. Aniq YouTube video URL qo‘yilganda shu joyda iframe ochiladi.</p><p style="margin-top: 10px;"><a href="' + topic.url + '" target="_blank" rel="noreferrer">Mos darsni YouTube’da qidirish</a></p></div></article>';
+    }
+
+    function renderQuiz(root, title, key, questions, subjectLabel, day) {
+      var expanded = expandQuestions(questions);
+      var saved = readJson(key, null);
+      var locked = Boolean(saved);
+      var answers = locked ? saved.answers || {} : {};
+      var score = locked ? saved.score : 0;
+      var total = expanded.length;
+      var html = '<section class="frame"><div class="result-row"><div><h2>' + title + '</h2><p class="small muted">' + (locked ? "Javoblar saqlangan. Endi faqat ko'rib chiqish mumkin." : "Bir marta topshiriladi.") + '</p></div>';
+      if (locked) html += '<div><strong class="ok">Natija: ' + score + '/' + total + '</strong> <button class="copy" type="button" data-copy="' + subjectLabel + '">Natijani nusxalash</button></div>';
+      html += '</div><form class="quiz-form">';
+      expanded.forEach(function (question, index) {
+        var value = answers[index] || "";
+        var correct = locked && normalize(value) === normalize(question.answer);
+        html += '<div class="question"><label>' + (index + 1) + '. ' + question.prompt + '</label>';
+        if (question.type === "multiple-choice" || question.type === "matching") {
+          html += '<select class="answer" name="q' + index + '"' + (locked ? " disabled" : "") + '><option value="">Javobni tanlang</option>';
+          (question.options || []).forEach(function (option) {
+            html += '<option value="' + option + '"' + (value === option ? " selected" : "") + '>' + option + '</option>';
+          });
+          html += '</select>';
+        } else {
+          html += '<input class="answer" name="q' + index + '" value="' + value + '" placeholder="Javob"' + (locked ? " disabled" : "") + '>';
+        }
+        if (locked) html += '<p class="' + (correct ? "ok" : "bad") + '" style="margin-top: 10px;">' + (correct ? "To'g'ri" : "Noto'g'ri") + '</p><p class="small">To‘g‘ri javob: ' + question.answer + '</p>';
+        html += '</div>';
+      });
+      if (!locked) html += '<button class="primary" type="submit">Quizni topshirish</button>';
+      html += '</form></section>';
+      root.insertAdjacentHTML("beforeend", html);
+
+      var form = root.querySelector(".quiz-form:last-child");
+      if (form && !locked) {
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          var nextAnswers = {};
+          var nextScore = 0;
+          expanded.forEach(function (question, index) {
+            var field = form.elements["q" + index];
+            nextAnswers[index] = field ? field.value : "";
+            if (normalize(nextAnswers[index]) === normalize(question.answer)) nextScore += 1;
+          });
+          localStorage.setItem(key, JSON.stringify({ score: nextScore, total: total, answers: nextAnswers, submittedAt: new Date().toISOString() }));
+          location.reload();
+        });
+      }
+
+      root.querySelectorAll("[data-copy]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var text = "Day " + day + " " + subjectLabel + ": " + score + "/" + total + " - " + new Date().toLocaleDateString("uz-UZ");
+          navigator.clipboard.writeText(text);
+          button.textContent = "Nusxalandi";
+        });
+      });
+    }
+
+    async function render() {
+      var day = getDayNumber();
+      document.getElementById("start-date").textContent = START_DATE;
+      document.getElementById("day-number").textContent = day;
+
+      var mathDay = mathCurriculum[Math.min(day, mathCurriculum.length) - 1] || mathCurriculum[0];
+      var mathTopics = mathDay.topics.map(function (topic) { return topic.title; });
+      var english = await loadGenerated("english", day, [], fallbackEnglish);
+      var math = await loadGenerated("math", day, mathTopics, mathFallback(mathTopics));
+      var grammarTopics = english.grammarTopics && english.grammarTopics.length ? english.grammarTopics : english.grammar ? [english.grammar] : [];
+
+      var englishRoot = document.getElementById("english");
+      englishRoot.innerHTML = '<section class="frame"><h2>Ingliz tili - ' + day + '-kun</h2><p class="muted" style="margin-top: 8px;">Bugun 15 ta so‘z, 2 ta grammatika mavzusi va bitta quiz bajariladi.</p></section>';
+      englishRoot.insertAdjacentHTML("beforeend", '<section class="frame"><h2>Bugungi 15 ta so‘z</h2><div class="grid two" style="margin-top: 16px;">' + (english.vocabulary || []).map(function (item) { return '<div class="word"><div class="word-head"><strong>' + item.word + '</strong><span class="small muted">' + item.uzbek + '</span></div><p class="small muted" style="margin-top: 6px;">' + item.example + '</p></div>'; }).join("") + '</div></section>');
+      englishRoot.insertAdjacentHTML("beforeend", '<div class="grid two">' + grammarTopics.map(function (lesson) { return '<section class="frame"><h2>' + lesson.title + '</h2><p class="muted" style="margin-top: 8px;">' + lesson.explanation + '</p><ul>' + (lesson.examples || []).map(function (item) { return '<li>' + item + '</li>'; }).join("") + '</ul></section>'; }).join("") + '</div>');
+      renderQuiz(englishRoot, "Ingliz tili quiz", "quiz_english_day_" + day, english.quiz || [], "English", day);
+
+      var mathRoot = document.getElementById("math");
+      mathRoot.innerHTML = '<section class="frame"><h2>Matematika - ' + day + '-kun</h2><p class="muted" style="margin-top: 8px;">Bugun 2 ta mavzu va 10 savollik quiz. 60 kundan keyin oxirgi takror darsi ko‘rsatiladi.</p></section><div class="grid two">' + mathDay.topics.map(videoCard).join("") + '</div>';
+      renderQuiz(mathRoot, "Matematika quiz", "quiz_math_day_" + day, math.quiz || [], "Math", day);
+
+      var playlist = getPlaylistId(CHESS_PLAYLIST_URL);
+      var chessRoot = document.getElementById("chess");
+      chessRoot.innerHTML = '<section class="frame"><h2>Shaxmat</h2><p class="muted" style="margin-top: 8px;">Shaxmat bo‘limi to‘liq ochiq. Kunlik cheklov va quiz yo‘q.</p></section>';
+      if (playlist) chessRoot.insertAdjacentHTML("beforeend", '<section class="frame video"><div class="ratio"><iframe src="https://www.youtube.com/embed/videoseries?list=' + playlist + '" title="UzChess playlist" allowfullscreen></iframe></div></section>');
+      chessRoot.insertAdjacentHTML("beforeend", '<div class="grid two">' + chessCurriculum.map(videoCard).join("") + '</div>');
+    }
+
+    document.querySelectorAll(".tab").forEach(function (button) {
+      button.addEventListener("click", function () {
+        document.querySelectorAll(".tab").forEach(function (item) { item.classList.remove("active"); });
+        document.querySelectorAll(".section").forEach(function (item) { item.classList.remove("active"); });
+        button.classList.add("active");
+        document.getElementById(button.dataset.tab).classList.add("active");
+      });
+    });
+
+    render();
+  </script>
+</body>
+</html>

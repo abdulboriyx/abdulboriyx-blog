@@ -40,6 +40,18 @@ const fallbackEnglish = {
     explanation: "'This is ...' yaqin turgan bitta narsani tanishtirish uchun ishlatiladi.",
     examples: ["This is a book.", "This is a pen.", "This is my bag."]
   },
+  grammarTopics: [
+    {
+      title: "This is ...",
+      explanation: "'This is ...' yaqin turgan bitta narsani tanishtirish uchun ishlatiladi.",
+      examples: ["This is a book.", "This is a pen.", "This is my bag."]
+    },
+    {
+      title: "I have ...",
+      explanation: "'I have ...' o'quvchida bor narsani aytish uchun ishlatiladi.",
+      examples: ["I have a book.", "I have a pen.", "I have a blue bag."]
+    }
+  ],
   quiz: [
     { type: "fill-blank", prompt: "This is a ____.", answer: "book" },
     { type: "fill-blank", prompt: "Hello so'zining ma'nosi nima?", answer: "salom" },
@@ -116,17 +128,13 @@ async function loadGeneratedContent({ subject, day, topics }) {
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("english");
-  const [day, setDay] = useState(1);
+  const [day, setDay] = useState(() => getDayNumber());
   const [english, setEnglish] = useState(null);
   const [math, setMath] = useState(null);
   const [englishError, setEnglishError] = useState("");
   const [mathError, setMathError] = useState("");
   const [loadingEnglish, setLoadingEnglish] = useState(true);
   const [loadingMath, setLoadingMath] = useState(true);
-
-  useEffect(() => {
-    setDay(getDayNumber());
-  }, []);
 
   const mathDay = useMemo(() => {
     const index = Math.min(day, mathCurriculum.length) - 1;
@@ -186,6 +194,11 @@ export default function HomePage() {
   }, [day, mathTopics]);
 
   const playlistId = getPlaylistId(CHESS_PLAYLIST_URL);
+  const grammarTopics = english?.grammarTopics?.length
+    ? english.grammarTopics
+    : english?.grammar
+      ? [english.grammar]
+      : [];
 
   return (
     <main className="min-h-screen bg-paper">
@@ -228,7 +241,7 @@ export default function HomePage() {
             <div className="lesson-frame rounded-md p-4">
               <h2 className="text-2xl font-semibold">Ingliz tili - {day}-kun</h2>
               <p className="mt-2 leading-7 text-ink/75">
-                Bugun 15 ta so'z, bitta grammatika darsi va bitta quiz bajariladi.
+                Bugun 15 ta so'z, 2 ta grammatika mavzusi va bitta quiz bajariladi.
               </p>
               {loadingEnglish ? <p className="mt-3 text-sm text-ink/60">Claude kontent tayyorlamoqda...</p> : null}
               {englishError ? (
@@ -238,7 +251,11 @@ export default function HomePage() {
               ) : null}
             </div>
             <WordList words={english?.vocabulary} />
-            <GrammarLesson lesson={english?.grammar} />
+            <div className="grid gap-4 md:grid-cols-2">
+              {grammarTopics.map((lesson, index) => (
+                <GrammarLesson key={`${lesson.title}-${index}`} lesson={lesson} />
+              ))}
+            </div>
             <QuizBlock
               title="Ingliz tili quiz"
               storageKey={`quiz_english_day_${day}`}

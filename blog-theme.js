@@ -42,7 +42,7 @@
     nav.innerHTML = "";
     [
       ["About", "https://x.com/abdulboriyx19", ""],
-      ["Archive", home + "#blog", ""],
+      [uz ? "O'qish" : "Studies", prefix + "learning/", ""],
       [languageLabel, languageHref, "link-logo"]
     ].forEach(function (item) {
       var li = document.createElement("li");

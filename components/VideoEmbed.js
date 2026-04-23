@@ -2,6 +2,8 @@ import { getYouTubeId } from "@/lib/youtube";
 
 export default function VideoEmbed({ title, url, source }) {
   const videoId = source === "real" ? getYouTubeId(url) : "";
+  const isPlaceholder = source === "placeholder";
+  const isKhan = source === "khan";
 
   return (
     <div className="lesson-frame overflow-hidden rounded-md">
@@ -21,12 +23,15 @@ export default function VideoEmbed({ title, url, source }) {
       ) : (
         <div className="space-y-3 px-4 py-5 text-sm leading-6 text-ink">
           <p>
-            Bu video havolasi hali tekshirilmagan. Khan Academy Uzbek yoki UzChess
-            havolasi qo'yilganda shu yerda video ochiladi.
+            {isKhan
+              ? "Bu mavzu Khan Academy Uzbek darsi orqali o'qiladi."
+              : isPlaceholder
+                ? "Vaqtincha qidiruv havolasi. Aniq YouTube video URL qo'yilganda shu joyda iframe ochiladi."
+                : "Video havolasi hali kiritilmagan."}
           </p>
           {url ? (
             <a className="font-semibold text-bluebook underline" href={url} target="_blank" rel="noreferrer">
-              Mos videoni YouTube'da qidirish
+              {isKhan ? "Khan Academy darsini ochish" : isPlaceholder ? "Mos darsni YouTube'da qidirish" : "Videoni ochish"}
             </a>
           ) : null}
         </div>
