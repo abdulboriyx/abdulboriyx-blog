@@ -307,6 +307,9 @@
     import { START_DATE, mathCurriculum } from "../data/math-curriculum.js";
     import { CHESS_PLAYLIST_URL, chessCurriculum } from "../data/chess-curriculum.js";
 
+    var CONTENT_CACHE_VERSION = 2;
+    var CONTENT_CACHE_MAX_AGE_MS = 6 * 60 * 60 * 1000;
+
     var fallbackEnglish = {
       topic: "Salomlashish va oddiy narsalar",
       vocabulary: [
@@ -380,6 +383,38 @@
       }
     }
 
+    function getTopicSignature(topics) {
+      return (topics || []).join("|");
+    }
+
+    function readCachedContent(key, topicSignature) {
+      var cached = readJson(key, null);
+      if (!cached || cached.version !== CONTENT_CACHE_VERSION || cached.topicSignature !== topicSignature) return null;
+      if (!cached.savedAt || Date.now() - cached.savedAt > CONTENT_CACHE_MAX_AGE_MS) return null;
+      return cached.data || null;
+    }
+
+    function writeCachedContent(key, topicSignature, data) {
+      localStorage.setItem(key, JSON.stringify({
+        version: CONTENT_CACHE_VERSION,
+        savedAt: Date.now(),
+        topicSignature: topicSignature,
+        data: data
+      }));
+    }
+
+    function hashString(value) {
+      var hash = 0;
+      for (var index = 0; index < value.length; index += 1) {
+        hash = (hash * 31 + value.charCodeAt(index)) >>> 0;
+      }
+      return hash.toString(36);
+    }
+
+    function getQuizStorageKey(subject, day, questions) {
+      return "quiz_" + subject + "_day_" + day + "_" + hashString(JSON.stringify(questions || []));
+    }
+
     function normalize(value) {
       return String(value || "").trim().toLowerCase();
     }
@@ -435,19 +470,21 @@
 
     async function loadGenerated(subject, day, topics, fallback) {
       var cacheKey = "content_" + subject + "_day_" + day;
-      var cached = readJson(cacheKey, null);
+      var topicSignature = getTopicSignature(topics);
+      var cached = readCachedContent(cacheKey, topicSignature);
       if (cached) return cached;
 
       try {
         var previousTopics = readJson("used_topics_" + subject, []);
         var response = await fetch("/api/generate", {
           method: "POST",
+          cache: "no-store",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ subject: subject, day: day, topics: topics, previousTopics: previousTopics })
         });
         if (!response.ok) throw new Error("API mavjud emas");
         var data = await response.json();
-        localStorage.setItem(cacheKey, JSON.stringify(data));
+        writeCachedContent(cacheKey, topicSignature, data);
         return data;
       } catch (error) {
         return fallback;
@@ -520,8 +557,13 @@
       });
     }
 
+    var renderedDay = null;
+
     async function render() {
       var day = getDayNumber();
+      if (renderedDay === day) return;
+      renderedDay = day;
+
       document.getElementById("start-date").textContent = START_DATE;
       document.getElementById("day-number").textContent = day;
 
@@ -535,11 +577,11 @@
       englishRoot.innerHTML = '<section class="frame"><h2>Ingliz tili - ' + day + '-kun</h2><p class="muted" style="margin-top: 8px;">Bugun 15 ta so‘z, 2 ta grammatika mavzusi va bitta quiz bajariladi.</p></section>';
       englishRoot.insertAdjacentHTML("beforeend", '<section class="frame"><h2>Bugungi 15 ta so‘z</h2><div class="grid two" style="margin-top: 16px;">' + (english.vocabulary || []).map(function (item) { return '<div class="word"><div class="word-head"><strong>' + item.word + '</strong><span class="small muted">' + item.uzbek + '</span></div><p class="small muted" style="margin-top: 6px;">' + item.example + '</p></div>'; }).join("") + '</div></section>');
       englishRoot.insertAdjacentHTML("beforeend", '<div class="grid two">' + grammarTopics.map(function (lesson) { return '<section class="frame"><h2>' + lesson.title + '</h2><p class="muted" style="margin-top: 8px;">' + lesson.explanation + '</p><ul>' + (lesson.examples || []).map(function (item) { return '<li>' + item + '</li>'; }).join("") + '</ul></section>'; }).join("") + '</div>');
-      renderQuiz(englishRoot, "Ingliz tili quiz", "quiz_english_day_" + day, english.quiz || [], "English", day);
+      renderQuiz(englishRoot, "Ingliz tili quiz", getQuizStorageKey("english", day, english.quiz || []), english.quiz || [], "English", day);
 
       var mathRoot = document.getElementById("math");
       mathRoot.innerHTML = '<section class="frame"><h2>Matematika - ' + day + '-kun</h2><p class="muted" style="margin-top: 8px;">Bugun 2 ta mavzu va 10 savollik quiz. 60 kundan keyin oxirgi takror darsi ko‘rsatiladi.</p></section><div class="grid two">' + mathDay.topics.map(videoCard).join("") + '</div>';
-      renderQuiz(mathRoot, "Matematika quiz", "quiz_math_day_" + day, math.quiz || [], "Math", day);
+      renderQuiz(mathRoot, "Matematika quiz", getQuizStorageKey("math", day, math.quiz || []), math.quiz || [], "Math", day);
 
       var playlist = getPlaylistId(CHESS_PLAYLIST_URL);
       var chessRoot = document.getElementById("chess");
@@ -558,6 +600,7 @@
     });
 
     render();
+    setInterval(render, 60000);
   </script>
 </body>
 </html>

@@ -10,6 +10,9 @@ import QuizBlock from "@/components/QuizBlock";
 import VideoEmbed from "@/components/VideoEmbed";
 import WordList from "@/components/WordList";
 
+const CONTENT_CACHE_VERSION = 2;
+const CONTENT_CACHE_MAX_AGE_MS = 6 * 60 * 60 * 1000;
+
 const tabs = [
   { id: "english", label: "Ingliz tili" },
   { id: "math", label: "Matematika" },
@@ -97,14 +100,51 @@ function readJson(key, fallback) {
   }
 }
 
+function getTopicSignature(topics = []) {
+  return topics.join("|");
+}
+
+function readCachedContent(key, topicSignature) {
+  const cached = readJson(key, null);
+  if (!cached || cached.version !== CONTENT_CACHE_VERSION || cached.topicSignature !== topicSignature) return null;
+  if (!cached.savedAt || Date.now() - cached.savedAt > CONTENT_CACHE_MAX_AGE_MS) return null;
+  return cached.data || null;
+}
+
+function writeCachedContent(key, topicSignature, data) {
+  localStorage.setItem(
+    key,
+    JSON.stringify({
+      version: CONTENT_CACHE_VERSION,
+      savedAt: Date.now(),
+      topicSignature,
+      data
+    })
+  );
+}
+
+function hashString(value) {
+  let hash = 0;
+  for (let index = 0; index < value.length; index += 1) {
+    hash = (hash * 31 + value.charCodeAt(index)) >>> 0;
+  }
+  return hash.toString(36);
+}
+
+function getQuizStorageKey(subject, day, questions = []) {
+  return `quiz_${subject}_day_${day}_${hashString(JSON.stringify(questions))}`;
+}
+
 async function loadGeneratedContent({ subject, day, topics }) {
   const cacheKey = `content_${subject}_day_${day}`;
-  const cached = readJson(cacheKey, null);
+  const topicSignature = getTopicSignature(topics);
+  const cached = readCachedContent(cacheKey, topicSignature);
   if (cached) return cached;
 
   const previousTopics = readJson(`used_topics_${subject}`, []);
   const response = await fetch("/api/generate", {
     method: "POST",
+    cache: "no-store",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ subject, day, topics, previousTopics })
   });
@@ -115,7 +155,7 @@ async function loadGeneratedContent({ subject, day, topics }) {
   }
 
   const data = await response.json();
-  localStorage.setItem(cacheKey, JSON.stringify(data));
+  writeCachedContent(cacheKey, topicSignature, data);
 
   const nextTopic = data.topic || topics.join(", ");
   localStorage.setItem(
@@ -135,6 +175,14 @@ export default function HomePage() {
   const [mathError, setMathError] = useState("");
   const [loadingEnglish, setLoadingEnglish] = useState(true);
   const [loadingMath, setLoadingMath] = useState(true);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setDay(getDayNumber());
+    }, 60000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
 
   const mathDay = useMemo(() => {
     const index = Math.min(day, mathCurriculum.length) - 1;
@@ -258,7 +306,7 @@ export default function HomePage() {
             </div>
             <QuizBlock
               title="Ingliz tili quiz"
-              storageKey={`quiz_english_day_${day}`}
+              storageKey={getQuizStorageKey("english", day, english?.quiz || [])}
               questions={english?.quiz || []}
               subjectLabel="English"
               day={day}
@@ -287,7 +335,7 @@ export default function HomePage() {
             </div>
             <QuizBlock
               title="Matematika quiz"
-              storageKey={`quiz_math_day_${day}`}
+              storageKey={getQuizStorageKey("math", day, math?.quiz || [])}
               questions={math?.quiz || []}
               subjectLabel="Math"
               day={day}
