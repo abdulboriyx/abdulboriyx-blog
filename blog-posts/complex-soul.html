@@ -11,6 +11,10 @@
   <title>I am a Complex Soul, They Layered Me Up: Why We Need Brain for Consciousness</title>
   <link rel="stylesheet" href="../blog.css">
   <style>
+    #blog {
+      box-sizing: border-box;
+    }
+
     .complex-soul-post {
       max-width: 900px;
       width: min(900px, calc(100% - 32px));
@@ -59,22 +63,59 @@
       text-transform: uppercase;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 900px), (max-device-width: 900px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      body:not(.blog-index) #blog {
+        width: 100%;
+        max-width: 100%;
+        padding: 96px 24px 64px;
+        overflow-x: hidden;
+      }
+
       .complex-soul-title-wrap {
+        position: static;
         left: auto;
         width: 100%;
-        margin: 4rem auto 3rem auto;
-        padding: 0 2rem;
+        max-width: 100%;
+        margin: 1.5rem 0 2.25rem;
+        padding: 0;
         transform: none;
       }
 
       .complex-soul-title {
-        font-size: 46px;
-        letter-spacing: -1.3px;
+        font-size: clamp(2rem, 8.5vw, 2.25rem);
+        letter-spacing: -0.9px;
+        line-height: 1.08;
       }
 
       .complex-soul-title span {
         white-space: normal;
+      }
+
+      .title-note {
+        font-size: 9px;
+        letter-spacing: 1px;
+        text-align: left;
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }
+
+      .complex-soul-post {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .complex-soul-post .blog-text,
+      .complex-soul-post .sources-list {
+        overflow-wrap: break-word;
+      }
+
+      .complex-soul-post .sources-list {
+        padding-left: 1.25rem;
       }
     }
   </style>
