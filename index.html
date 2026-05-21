@@ -19,23 +19,86 @@
     </div>
   </div>
 
-  <main id="blog" aria-label="Recent posts">
-    <div class="list-head">
-      <span>-- Recent</span>
-      <span>8 entries</span>
+  <main id="blog" class="folder-home" aria-label="Blog folders">
+    <div class="folder-view is-active" data-view="home">
+      <div class="folder-grid" aria-label="Folders">
+        <button class="folder-head" type="button" data-open-folder="science-work">
+          <span class="folder-icon folder-icon-dark" aria-hidden="true"></span>
+          <span class="folder-meta">
+            <span class="folder-title">Science &amp; Work</span>
+            <span class="folder-count">2 entries</span>
+          </span>
+        </button>
+
+        <button class="folder-head" type="button" data-open-folder="personal-essays">
+          <span class="folder-icon folder-icon-light" aria-hidden="true"></span>
+          <span class="folder-meta">
+            <span class="folder-title">Personal &amp; Essays</span>
+            <span class="folder-count">6 entries</span>
+          </span>
+        </button>
+      </div>
     </div>
-    <nav class="post-list">
-      <a href="./blog-posts/inspirations.html"><span class="post-title">Inspirations</span><span class="post-date">Mar 07, 2025</span></a>
-      <a href="./blog-posts/consciousness.html"><span class="post-title">Consciousness</span><span class="post-date">Dec 17, 2024</span></a>
-      <a href="./blog-posts/work.html"><span class="post-title">Founder</span><span class="post-date">Nov 30, 2024</span></a>
-      <a href="./blog-posts/god.html"><span class="post-title">God!</span><span class="post-date">Nov 22, 2024</span></a>
-      <a href="./blog-posts/solitude.html"><span class="post-title">Bearing Oneself</span><span class="post-date">Sep 08, 2024</span></a>
-      <a href="./blog-posts/addiction.html"><span class="post-title">A learned heart can't unlearn!</span><span class="post-date">Jun 26, 2024</span></a>
-      <a href="./blog-posts/age-matter.html"><span class="post-title">It's not the years, honey. It's the mileage</span><span class="post-date">Jun 21, 2024</span></a>
-      <a href="./blog-posts/why-start-blog.html"><span class="post-title">Why did I start this blog?</span><span class="post-date">Jun 20, 2024</span></a>
-    </nav>
+
+    <div class="folder-view" data-view="science-work" hidden>
+      <div class="folder-window">
+        <div class="folder-toolbar">
+          <button class="folder-back" type="button" data-open-folder="home">Back</button>
+          <div class="folder-open-title">
+            <span class="folder-icon folder-icon-dark" aria-hidden="true"></span>
+            <div class="list-head">
+              <span>Science &amp; Work</span>
+              <span>2 entries</span>
+            </div>
+          </div>
+        </div>
+        <nav class="post-list" aria-label="Science and Work posts">
+          <a href="./blog-posts/consciousness.html"><span class="post-title">Consciousness</span><span class="post-date">Dec 17, 2024</span></a>
+          <a href="./blog-posts/god.html"><span class="post-title">God!</span><span class="post-date">Nov 22, 2024</span></a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="folder-view" data-view="personal-essays" hidden>
+      <div class="folder-window">
+        <div class="folder-toolbar">
+          <button class="folder-back" type="button" data-open-folder="home">Back</button>
+          <div class="folder-open-title">
+            <span class="folder-icon folder-icon-light" aria-hidden="true"></span>
+            <div class="list-head">
+              <span>Personal &amp; Essays</span>
+              <span>6 entries</span>
+            </div>
+          </div>
+        </div>
+        <nav class="post-list" aria-label="Personal and Essays posts">
+          <a href="./blog-posts/inspirations.html"><span class="post-title">Inspirations</span><span class="post-date">Mar 07, 2025</span></a>
+          <a href="./blog-posts/work.html"><span class="post-title">Founder</span><span class="post-date">Nov 30, 2024</span></a>
+          <a href="./blog-posts/solitude.html"><span class="post-title">Bearing Oneself</span><span class="post-date">Sep 08, 2024</span></a>
+          <a href="./blog-posts/addiction.html"><span class="post-title">A learned heart can't unlearn!</span><span class="post-date">Jun 26, 2024</span></a>
+          <a href="./blog-posts/age-matter.html"><span class="post-title">It's not the years, honey. It's the mileage</span><span class="post-date">Jun 21, 2024</span></a>
+          <a href="./blog-posts/why-start-blog.html"><span class="post-title">Why did I start this blog?</span><span class="post-date">Jun 20, 2024</span></a>
+        </nav>
+      </div>
+    </div>
   </main>
 
   <script src="blog-theme.js"></script>
+  <script>
+    const folderViews = document.querySelectorAll("[data-view]");
+    const folderButtons = document.querySelectorAll("[data-open-folder]");
+
+    function openFolder(folderName) {
+      folderViews.forEach((view) => {
+        const isActive = view.dataset.view === folderName;
+        view.hidden = !isActive;
+        view.classList.toggle("is-active", isActive);
+      });
+    }
+
+    folderButtons.forEach((button) => {
+      button.addEventListener("click", () => openFolder(button.dataset.openFolder));
+    });
+  </script>
 </body>
 </html>
