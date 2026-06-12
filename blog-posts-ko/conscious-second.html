@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="../img/logo.svg" rel="icon" type="img/x-icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"/>
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/7bc36397e6.js"></script>
+  <title>GWT와 나의 것임: 뇌와 경험의 이분법을 넘어서</title>
+  <link href="../blog.css" rel="stylesheet"/>
+  <style>
+    #blog {
+      box-sizing: border-box;
+    }
+
+    .complex-soul-post {
+      max-width: 900px;
+      width: min(900px, calc(100% - 32px));
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .complex-soul-title-wrap {
+      position: relative;
+      left: 50%;
+      width: min(1050px, calc(100vw - 4rem));
+      max-width: 1050px;
+      margin: 4.75rem 0 3rem 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-align: center;
+      transform: translateX(-50%);
+    }
+
+    .complex-soul-title {
+      margin: 0 0 24px;
+      padding: 0;
+      color: var(--ink);
+      font-family: "Rubik", sans-serif;
+      font-size: clamp(42px, 4.2vw, 60px);
+      font-style: normal;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+
+    .complex-soul-title span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .title-note {
+      margin: 0.9rem 0 0;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 2px;
+      line-height: 1.5;
+      opacity: 0.72;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .blog-epigraph {
+      max-width: 760px;
+      width: min(760px, calc(100% - 32px));
+      margin: -1rem auto 3rem;
+      text-align: center;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 20px;
+      font-style: italic;
+      line-height: 1.55;
+      opacity: 0.86;
+    }
+
+    .blog-epigraph p {
+      margin: 0;
+    }
+
+    .blog-epigraph-source {
+      margin-top: 0.85rem !important;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-style: normal;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 900px), (max-device-width: 900px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      body:not(.blog-index) #blog {
+        width: 100%;
+        max-width: 100%;
+        padding: 96px 24px 64px;
+        overflow-x: hidden;
+      }
+
+      .complex-soul-title-wrap {
+        position: static;
+        left: auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 1.5rem 0 2.25rem;
+        padding: 0;
+        transform: none;
+        text-align: center;
+      }
+
+      .complex-soul-title {
+        font-size: clamp(2rem, 8.5vw, 2.25rem);
+        letter-spacing: -0.9px;
+        line-height: 1.08;
+      }
+
+      .complex-soul-title span {
+        white-space: normal;
+      }
+
+      .title-note {
+        font-size: 9px;
+        letter-spacing: 1px;
+        text-align: center;
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }
+
+      .blog-epigraph {
+        width: 100%;
+        max-width: 100%;
+        margin: -0.5rem 0 2.25rem;
+        font-size: 16px;
+        text-align: left;
+      }
+
+      .blog-epigraph-source {
+        font-size: 9px;
+        letter-spacing: 1px;
+      }
+
+      .complex-soul-post {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .complex-soul-post .blog-text,
+      .complex-soul-post .sources-list {
+        overflow-wrap: break-word;
+      }
+
+      .complex-soul-post .sources-list {
+        padding-left: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar">
+    <div class="navbar-container">
+      <a class="name-blog" href="../index.html">abdulboriyx</a>
+      <ul class="navbar-list">
+        <li class="navbar-list-list"><a href="https://x.com/abdulboriyx19">About</a></li>
+        <li class="navbar-list-list"><a href="/learning/">Studies</a></li>
+        <li class="navbar-list-list"><a class="link-logo" href="../index-ko.html">Korean</a></li>
+        <li class="navbar-list-list"><a class="link-logo" href="../index-ru.html">Russian</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Blog -->
+  <div id="blog">
+    <div class="complex-soul-title-wrap">
+      <h1 class="complex-soul-title">
+        <span>GWT와 나의 것임:</span>
+        <span>뇌와 경험의 이분법을 넘어서</span>
+      </h1>
+      <p class="title-note">Global Workspace Theory and Mineness</p>
+    </div>
+
+    <div class="blog-epigraph">
+      <p>그들이 그대에게 영혼에 관해 묻는다. 말하라. “그 본질은 오직 나의 주님께 속한 것이며, 너희에게 주어진 지식은 아주 조금일 뿐이다.”</p>
+      <p class="blog-epigraph-source">Quran, 17:85</p>
+    </div>
+
+    <div class="blog-content blog-one complex-soul-post">
+      <p class="blog-text">지난 글에서 나는 의식이 뇌만으로는 설명될 수 없으며, 의식이 나타나기 위해서는 뇌와 비물질적 차원이 함께 필요하다고 주장했다. 이번 글에서는 그 이해를 한 단계 더 밀고 나가고자 한다. 이 글에서 내가 분석할 두 가지 핵심 개념은 Global Workspace Theory(GWT)와 경험의 1인칭적 주어짐이다. GWT는 정보가 의사결정, 기억, 행동, 행위 등을 위해 전역적으로 사용 가능해지는 것을 설명한다. 반면 경험의 1인칭적 주어짐은 의식적 정보가 익명적으로 주어지는 것이 아니라, “나의 것” 혹은 “나-다움”의 관점에서 주어진다는 사실을 가리킨다.</p>
+
+      <p class="blog-text">앞부분에서는 먼저 Global Workspace Theory(GWT)를 분석할 것이다. 나는 GWT가 “어떻게”라는 질문, 즉 정보가 어떻게 의식적이고, 보고 가능하며, 더 넓은 인지적 사용을 위해 사용 가능해지는지를 강하게 설명한다고 주장할 것이다. 그러나 동시에 GWT는 “왜”라는 질문, 즉 의식적 정보가 애초에 왜 나의 것으로 경험되는지를 설명하는 데에는 약하다고 주장할 것이다. 이 한계를 보이기 위해 나는 Zahavi와 Parnas의 자기의식 논의를 가져올 것이다.</p>
+
+      <p class="blog-text">GWT를 평가하기 전에, 먼저 이 이론이 해결하려고 하는 경험적 문제들을 이해할 필요가 있다. Dehaene과 Naccache는 의식 이론이 설명해야 할 세 가지 핵심 조건을 제시한다.</p>
+
+      <ul class="blog-text">
+        <li>일정량의 정보는 무의식적으로 처리된다.</li>
+        <li>주의는 의식의 전제 조건이다.</li>
+        <li>의식은 특정한 인지 과제에 필요한 것으로 보인다.</li>
+      </ul>
+
+      <p class="blog-text">이 이론에 따르면, 일정량의 정보는 무의식적으로 처리될 수 있으며, 그 처리에는 의식이 필요하지 않다. 예시로 그들은 blindsight를 든다. Blindsight 환자들은 자신의 보이지 않는 시야에 제시된 자극을 보지 못했다고 말한다. 그러나 강제로 과제를 수행하게 하면, 여전히 자극을 지각하지 못했다고 말하면서도 우연 이상의 정확도로 반응한다(Dehaene & Naccache, 2001, p. 5). 따라서 어떤 정보처리는 의식 없이도 일어날 수 있다. 둘째, 주의는 의식의 전제 조건이다. 자극의 강도와 지속시간도 중요하지만, 현재 처리되는 정보에 주의가 주어지지 않으면 그것은 의식이 되지 못할 수 있다. Mack와 Rock의 inattentional blindness 연구는 이것을 보여준다. 피험자들이 어려운 시각 과제에 집중하는 동안 다른 보이는 자극이 다른 위치에 나타나지만, 주의가 이미 점유되어 있기 때문에 많은 피험자들은 보통이라면 지각할 수 있었을 그 자극을 알아차리지 못한다(Dehaene & Naccache, 2001, p. 8). 셋째, 의식은 새로운 조작의 결합, 지속적이고 명시적인 정보 유지, 자발적이고 의도적인 행동 같은 특정 인지 과제에 필요한 것으로 보인다(Dehaene & Naccache, 2001, pp. 9–11).</p>
+
+      <p class="blog-text">이 지점들은 뇌의 많은 처리가 국소적이고 무의식적으로 일어날 수 있음을 보여준다. Dehaene과 Naccache는 이것을 마음의 모듈성으로 설명한다. 뇌는 특정한 종류의 정보를 처리하는 전문화된 처리기들을 가진다. 이러한 처리기들은 자동적이고, 영역 특수적이며, 특정한 과제를 의식적 접근 없이도 수행할 수 있을 만큼 서로 충분히 연결되어 있을 수 있다. 그러나 이것은 다음 질문을 불러온다. 국소적 처리기들이 무의식적 처리를 설명할 수 있다면, 의식적 처리는 무엇이 다르다는 말인가?</p>
+
+      <p class="blog-text">의식은 거의 그 반대처럼 보인다. 즉, 의식은 비모듈적이다. 의식은 하나의 영역에 특수화되어 있거나 한 장소에 위치한 것이 아니라, 여러 영역의 통일과 통합에 의존하는 것처럼 보인다. 예를 들어, 내가 예전에 만난 사람을 보고 친구에게 내가 그를 기억하며 어디에서 만났는지 말한다고 해보자. 이 하나의 경험에는 지각, 기억, 언어, 보고가 모두 포함된다. 이것은 뇌에 전역적 시스템, 즉 의식의 전역적이고 통합적인 시스템이 필요하다는 점을 시사한다. 이 시스템은 장거리 연결을 가진 분산된 시스템이어야 한다. 왜냐하면 그 기능은 전문화된 모듈 혹은 처리기들을 연결하고, 그들 사이에서 정보 공유를 가능하게 하며, 정보를 전역적으로 사용 가능하게 만들고, 의식적 접근을 지탱하는 것이기 때문이다. 저자들은 이것을 global neuronal workspace라고 부른다(Dehaene & Naccache, 2001, pp. 13–14). 여기에 관여하는 주요 범주는 다섯 가지이다.</p>
+
+      <ul class="blog-text">
+        <li>지각 회로</li>
+        <li>운동 회로</li>
+        <li>장기기억 회로</li>
+        <li>평가 회로</li>
+        <li>주의/하향식 회로</li>
+      </ul>
+
+      <p class="blog-text">의식적 내용은 이러한 회로들의 정보가 workspace를 통해 전역적으로 사용 가능해질 때 발생한다.</p>
+
+      <p class="blog-text">우리는 이제 경험적 배경과 어떤 뇌 시스템들이 관여하는지를 살펴보았다. 그렇다면 자연스럽게 다음 질문이 생긴다. 이 이론에서 정보는 어떻게 전역적으로 사용 가능해지는가? 주의는 정보를 전역적으로 사용 가능하게 만드는 데 핵심적인 역할을 하는 것으로 보인다. 많은 뇌 회로는 무의식 상태에 머무르면서도 활성화되고 정보를 처리할 수 있다. 저자들은 하향식 주의 증폭이 정보를 global workspace로 동원하고 의식화하는 메커니즘이라고 주장한다. 목표, 과제 지시, 기대, 주의 같은 고차원적 메커니즘은 목표에 따라 시각 처리나 청각 처리 같은 저차원적 처리 메커니즘에 영향을 준다. 예를 들어, 군중 속에서 친구를 찾을 때, 친구를 찾는다는 고차원적 목표는 시각 처리를 특정 얼굴형, 피부색, 머리 모양과 같은 세부사항에 맞추어 좁힌다. 이것은 국소 처리기들이 전역적 네트워크 안으로 일시적으로 동원되는 과정이며, 이를 dynamic mobilization이라고 부른다.</p>
+
+      <p class="blog-text">이 설명만 보면 누군가가 이 전체 과정을 통제하는 행위자가 있는 것처럼 생각할 수도 있다. 그러나 저자들은 그런 homunculus 해석을 거부한다. 또한 그들은 global workspace가 정확히 고정된 하나의 물리적 뇌 영역이 아니라, 장거리 연결망으로 이루어진 분산 시스템이라고 주장한다. 주의가 정보를 global workspace로 가져오기 위해서는 여러 신경 패턴들이 서로 경쟁하며, 선택된 패턴이 증폭되어 의식 상태로 전역적으로 사용 가능해진다. 또한 단순히 활동이 진행되고 있다는 것만으로는 충분하지 않다. 그 활동은 여러 다른 과정들이 접근할 수 있을 만큼 충분히 증폭되고 유지되어야 한다.</p>
+
+      <p class="blog-text">이 설명은 왜 어떤 정보가 처리되면서도 여전히 의식이 되지 못하는지를 보여준다. 정보가 너무 약하거나, 너무 짧거나, 너무 불안정하거나, 충분히 증폭되지 않으면 일시적으로 무의식 상태에 머물 수 있다. 다시 말해, 어떤 자극은 무의식적 처리에 필요한 첫 번째 문턱은 넘지만, 의식적 접근에 필요한 두 번째 문턱은 넘지 못할 수 있다. Masked priming이 그 예이다. masked prime은 무의식적으로 처리되고 이후 행동에 영향을 줄 수 있지만, 보고 가능하거나 의식적으로 사용 가능한 상태에는 이르지 못한다(Dehaene & Naccache, 2001, pp. 18–20).</p>
+
+      <p class="blog-text">이 경험적 지점들은 왜 GWT가 의식적 접근에 대한 강력한 이론인지를 보여준다. GWT는 정보가 증폭, 안정성, 대규모 조정을 통해 어떻게 전역적으로 사용 가능해지는지를 설명한다. 그러나 Dehaene과 Naccache는 이 모델을 qualia나 self 같은 철학적 문제로도 확장하려고 한다. 예를 들어, 그들은 workspace model이 의식적 내용을 매우 복잡하고, 역동적이며, 다층적인 상태로 이해함으로써 철학자들이 말하는 qualia에 대한 직관을 설명할 수 있다고 제안한다. 나는 이 지점에 동의하지 않는다. GWT가 의식 내용이 왜 복잡하고 역동적이며 설명하기 어려운지를 설명한다고 하더라도, 그것이 왜 나의 것으로 경험되는지는 여전히 설명하지 못한다. Dehaene과 Naccache가 논문 후반부에서 self를 논의할 때에도, 그들은 그것을 주로 self-related representation이 workspace 안에 통합되는 것으로 다룬다. 그러나 이것은 경험의 1인칭적 주어짐을 여전히 설명하지 못한다.</p>
+
+      <p class="blog-text">나는 일반적으로 의식에 대한 물질주의적이거나 물리주의적인 설명에 회의적이다. 그러나 GWT는 매우 설득력 있으며, “어떻게”라는 질문에 대해서는 solid한 답을 준다. 저자들도 “왜”라는 질문에 접근하려고 하고, 논문 후반부에서는 1인칭 경험 역시 GWT를 통해 설명될 수 있다고 제안하는 것처럼 보인다. 마치 그것이 매우 복잡하고, 풍부하며, 다층적인 처리의 한 형태일 수 있다는 식이다. 나는 여기에 동의하지 않는다.</p>
+
+      <p class="blog-text">qualia가 GWT를 통해 설명될 수 있는 풍부하고, 복잡하고, 다층적인 상태라고 가정해보자. 그렇다고 해도 이것은 우리의 질문에 답하지 않는다. 왜 경험이 존재하는가? 그리고 그것은 어떻게 나의 것으로 주어지는가? 예를 들어, 저자들의 논문에서 나온 예시인 읽기를 보자. 읽기는 자동화되고 반복될 수 있으며, full workspace의 개입을 거의 요구하지 않을 수 있다. 그러나 읽기가 의식적으로 경험될 때, 질문은 여전히 남는다. 왜 이 읽기는 나의 것으로, 나의 1인칭 경험으로 주어지는가? 나는 GWT가 “왜”라는 질문보다는 “어떻게”라는 질문에 대한 답으로 이해되어야 한다고 본다. “어떻게”라는 질문에 대한 답은 의식 연구에서 중요한 부분이다. 그러나 그것만으로는 “왜”라는 질문에 답할 수 없다. “왜”라는 질문은 의식의 본성과, 그 밑에 있는 메커니즘과 관계없이 왜 경험이 존재하는지를 묻기 때문이다. 또한 “어떻게”라는 질문에 대한 답은 관계적 과정들을 설명할 수 있지만, 왜 그런 과정들이 주관적이고 1인칭적으로 주어진 경험을 만들어내는지는 설명하지 못한다. 전역적 사용 가능성이 왜 mineness를 설명하지 못하는지 분명히 하기 위해, 나는 Zahavi와 Parnas의 논문 “Phenomenal Consciousness and Self-Awareness: A Phenomenological Critique of Representational Theory”를 소개하고자 한다.</p>
+
+      <p class="blog-text">Zahavi와 Parnas는 의식이 물리적 원인이나 신경적 원인을 가질 수 있다는 점을 부정하지 않는다. 그러나 그들은 어떤 설명이든 먼저 경험의 1인칭적 구조를 진지하게 받아들여야 한다고 주장한다(Zahavi & Parnas, 1998, p. 687). 그들의 질문은 이것이다. 의식은 어떻게 애초에 이미 나의 것으로 주어지는가? 그들은 특히 Armstrong의 higher-order perception theory와 Rosenthal의 higher-order thought theory를 분석하고, 그 제안들을 진지하게 검토한다(Zahavi & Parnas, 1998, pp. 692–694). 그러나 그들의 문제는 이러한 이론들이 하나의 정신 상태를 다른 정신 상태의 대상으로 만듦으로써 의식을 설명하려 한다는 데 있다. 이것은 여전히 첫 번째 정신 상태가 왜 나의 것으로 주어지는지를 설명하지 못한다(Zahavi & Parnas, 1998, pp. 694–695). 이 실패는 그들을 더 근본적인 구분으로 이끈다. 그들은 어떤 의식 이론이든 다음 두 가지를 구분해야 한다고 본다.</p>
+
+      <ul class="blog-text">
+        <li>지향성</li>
+        <li>자기의식</li>
+      </ul>
+
+      <p class="blog-text">지향성은 의식이 어떤 대상을 향해 있다는 뜻이다. 자기의식은 의식이 바로 그 경험 안에서 자기 자신에게 주어진다는 뜻이다(Zahavi & Parnas, 1998, pp. 689–690). 표상주의 이론들은 자기의식을 대상의식의 모델로 잘못 이해한다. Zahavi와 Parnas는 knife model과 flame model의 예를 든다. knife model은 의식이 대상을 의식할 수는 있지만 자기 자신은 의식할 수 없다고 본다. 마치 칼이 다른 것은 자를 수 있지만 자기 자신은 자를 수 없는 것처럼 말이다. 이 관점에서 의식은 이후에 오는 higher-order act를 통해서만 자기 자신을 의식하게 된다. 반면 flame model은 의식을 self-luminous한 것으로 본다. 불꽃이 다른 것들을 비추면서 동시에 자기 자신도 비추는 것처럼, 의식은 대상을 향하면서도 동시에 자기 자신에게 주어진다(Zahavi & Parnas, 1998, p. 696).</p>
+
+      <p class="blog-text">그러나 그들이 reflective self를 부정하는 것은 아니다. 그들은 pre-reflective awareness가 있다고 주장할 뿐이다. 반성적 자기의식은 가능하지만, 그것은 선반성적 자기의식을 전제한다(Zahavi & Parnas, 1998, p. 696). 반성적 자기의식은 명시적이고, 주제화되어 있으며, 대상화되고, 개념적이다. 반면 선반성적 자기의식은 암묵적이고, 비대상화적이며, 비개념적이고, 비명제적이며, 1인칭적이다(Zahavi & Parnas, 1998, pp. 696–697).</p>
+
+      <p class="blog-text">개인적인 예를 들어보겠다. 어제 San Antonio Spurs가 New York Knicks에게 졌다. 나는 Wembanyama를 개인적으로 응원했기 때문에 Spurs가 이기기를 기대했다. 그러나 우리는 1점 차로 졌다. 나는 한동안 실망했고 슬펐다. 그다음에야 나는 왜 내가 실망했는지, 이 감정을 어떻게 다뤄야 하는지, 어떻게 넘어가야 하는지를 스스로에게 물었다. Zahavi와 Parnas가 말하는 것은, 처음 주어진 실망이 이미 선반성적이며 나의 것으로 주어진다는 것이다. 그것은 나중의 명시적 자기성찰과 무관하게 이미 1인칭적으로 주어진다. 나중의 반성은 내가 그것을 분석하도록 도울 수 있지만, 나는 이미 1인칭적으로 주어진 경험을 가지고 있었다. 설령 선반성적 의식을 workspace state와 동일시하더라도, 그 동일시는 왜 그 상태가 익명적인 처리로서가 아니라 이미 나의 것으로 주어지는지를 설명하지 못한다. 이것은 현상학이 개인적 예시나 주관적 보고에서 멈춘다는 뜻이 아니다.</p>
+
+      <p class="blog-text">그들은 또한 자기의식을 내재적이거나 현상학적인 것으로 다루는 것이 추가 분석을 막는다는 생각에도 반대한다. 그들에게 현상학은 탐구를 끝내는 것이 아니라, 경험의 구조를 더 정확하게 분석할 수 있게 한다. Zahavi와 Parnas는 우리가 여전히 그것의 구조를 현상학적으로 분석하고 탐구할 수 있다고 보는 것처럼 보인다. 만약 Zahavi와 Parnas가 1인칭적 주어짐이 기능적 접근으로 소진되지 않는다는 점을 보여준다면, 우리는 여전히 뇌가 어떤 역할을 하는지 설명해야 한다. GWT는 우리가 뇌를 무시하지 못하게 한다. Zahavi와 Parnas는 우리가 의식을 뇌로 환원하지 못하게 한다.</p>
+
+      <p class="blog-text">이제 뇌는 우리의 의식에 대한 현상학적 설명에서 중요하다. GWT를 통해 보았듯이, 뇌는 뇌 손상, 지각, 의식에서 필수적이고 인과적인 역할을 한다. 뇌는 우리가 외부 세계를 지각하는 방식에 직접적인 영향을 미친다. 그러나 뇌만으로는 이 질문에 대한 완전한 답이 될 수 없다. 뇌는 Zahavi와 Parnas가 제기한 경험의 1인칭적 주어짐을 설명하지 못한다. 나는 뇌가 현상학적 경험을 위한 매체 혹은 인터페이스라고 제안하고자 한다. 뇌는 통일되고, 보고 가능하며, 조직화된 현상학적 경험을 embodied한다. 뇌는 단순한 수동적 기질이 아니다. 뇌는 적극적으로 매체로 작용한다.</p>
+
+      <p class="blog-text">이 과정에서 뇌가 얼마나 중요한지 보기 위해, 나는 GWT 논문에서 제시된 복잡한 정보처리, 정보 지각, 그리고 하향식-상향식 메커니즘 사이의 self-sustained loop를 살펴볼 필요가 있다고 본다. 그러나 이것은 뇌가 왜 중요한지에 대한 답일 뿐, 그 경험의 주관적 본성에 대한 답은 여전히 아니다. 뇌가 이것을 정확히 어떻게 하는가? 나는 아직 모른다. 그러나 내가 바라보고 있는 몇 가지 방향은 있다. 그중 하나는 Avicenna의 Floating Man과 비슷한 방향이다. 즉, 우리 안에는 내적이고 주관적인 awareness가 있다는 생각이다.</p>
+
+      <p class="blog-text">그러나 나는 Avicenna가 부여한 만큼 비물리적 존재에 큰 무게를 두지는 않을 것이다. 나는 어떤 주관적이고 비물리적인 essence가 있다고는 생각하지만, 그것만으로는 의식의 기반 전체가 될 수 없다고 본다. 그것은 자기 자신을 embody하고, 우리의 주관적이고 1인칭적인 의식 경험을 일으키기 위해 뇌를 필요로 한다.</p>
+
+      <p class="blog-text">GWT는 경험적으로 매우 강력하며, 정보가 어떻게 의식이 되는지에 대한 가장 분명한 이론 중 하나를 제공한다. 그러나 Zahavi와 Parnas의 논문은 기능적 접근에 대한 설명만으로는 주관적이고 1인칭적으로 주어진 경험을 설명하기에 충분하지 않다는 점을 보여준다. 두 설명은 모두 필요하지만, 어느 하나만으로는 충분하지 않다. 나는 뇌가 1인칭적 경험을 위한 능동적 매체로 작용한다고 제안한다. 뇌는 순수한 메커니즘만으로 주관성을 만들어내는 것이 아니라, 경험을 주관적인 것으로 적극적으로 embodied하고 조직한다. 이것이 정확히 어떻게 작동하는지는 여전히 열린 질문이지만, 이 방향은 뇌만으로도, 주관적 경험만으로도 의식을 설명할 수 없다는 관점으로 나아가게 한다.</p>
+
+      <h2 class="blog-header">출처</h2>
+      <ol class="blog-text sources-list">
+        <li><b>Stanislas Dehaene and Lionel Naccache</b>. “Towards a cognitive neuroscience of consciousness: basic evidence and a workspace framework.” <i>Cognition</i>, Vol. 79, 2001, pp. 1–37.</li>
+        <li><b>Dan Zahavi and Josef Parnas</b>. “Phenomenal Consciousness and Self-Awareness: A Phenomenological Critique of Representational Theory.” <i>Journal of Consciousness Studies</i>, Vol. 5, No. 5–6, 1998, pp. 687–705.</li>
+        <li><b>Avicenna</b>. Floating Man thought experiment.</li>
+      </ol>
+
+      <p class="blog-text">서울, 한국</p>
+      <p class="blog-text">2026년 6월 12일</p>
+    </div>
+  </div>
+
+  <script src="../blog-theme.js"></script>
+</body>
+</html>

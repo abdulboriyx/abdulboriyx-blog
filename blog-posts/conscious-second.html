@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="img/x-icon" href="../img/logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/7bc36397e6.js" crossorigin="anonymous"></script>
+  <title>Global Workspace Theory and First-Person Givenness</title>
+  <link rel="stylesheet" href="../blog.css">
+  <style>
+    #blog {
+      box-sizing: border-box;
+    }
+
+    .complex-soul-post {
+      max-width: 900px;
+      width: min(900px, calc(100% - 32px));
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .complex-soul-title-wrap {
+      position: relative;
+      left: 50%;
+      width: min(1050px, calc(100vw - 4rem));
+      max-width: 1050px;
+      margin: 4.75rem 0 3rem 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-align: center;
+      transform: translateX(-50%);
+    }
+
+    .complex-soul-title {
+      margin: 0 0 24px;
+      padding: 0;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: clamp(42px, 4.2vw, 60px);
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -1.8px;
+      line-height: 1;
+    }
+
+    .complex-soul-title span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .blog-epigraph {
+  max-width: 760px;
+  width: min(760px, calc(100% - 32px));
+  margin: -1rem auto 3rem;
+  text-align: center;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.55;
+  opacity: 0.86;
+}
+
+.blog-epigraph p {
+  margin: 0;
+}
+
+.blog-epigraph-source {
+  margin-top: 0.85rem !important;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-style: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+    .title-note {
+      margin: 0.9rem 0 0;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 2px;
+      line-height: 1.5;
+      opacity: 0.72;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px), (max-device-width: 900px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      body:not(.blog-index) #blog {
+        width: 100%;
+        max-width: 100%;
+        padding: 96px 24px 64px;
+        overflow-x: hidden;
+      }
+
+      .complex-soul-title-wrap {
+        position: static;
+        left: auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 1.5rem 0 2.25rem;
+        padding: 0;
+        transform: none;
+        text-align: center;
+      }
+
+      .complex-soul-title {
+        font-size: clamp(2rem, 8.5vw, 2.25rem);
+        letter-spacing: -0.9px;
+        line-height: 1.08;
+      }
+
+      .complex-soul-title span {
+        white-space: normal;
+      }
+      .blog-epigraph {
+  width: 100%;
+  max-width: 100%;
+  margin: -0.5rem 0 2.25rem;
+  font-size: 16px;
+  text-align: left;
+}
+
+.blog-epigraph-source {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+     .title-note {
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-align: center;
+      overflow-wrap: anywhere;
+      word-break: normal;
+      }
+
+      .complex-soul-post {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .complex-soul-post .blog-text,
+      .complex-soul-post .sources-list {
+        overflow-wrap: break-word;
+      }
+
+      .complex-soul-post .sources-list {
+        padding-left: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar">
+    <div class="navbar-container">
+      <a class="name-blog" href="../index.html">abdulboriyx</a>
+      <ul class="navbar-list">
+        <li class="navbar-list-list"><a href="https://x.com/abdulboriyx19">About</a></li>
+        <li class="navbar-list-list"><a href="/learning/">Studies</a></li>
+        <li class="navbar-list-list"><a class="link-logo" href="../index-ko.html">Korean</a></li>
+        <li class="navbar-list-list"><a class="link-logo" href="../index-ru.html">Russian</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Blog -->
+  <div id="blog">
+    <div class="complex-soul-title-wrap">
+      <h1 class="complex-soul-title">
+        <span>GWT and Mineness: Beyond </span>
+        <span>a Binary Account of Consciousness</span>
+      </h1>
+    </div>
+
+    <div class="blog-epigraph">
+  <p>They ask you ˹O Prophet˺ about the spirit. Say, “Its nature is known only to my Lord, and you ˹O humanity˺ have been given but little knowledge.”</p>
+  <p class="blog-epigraph-source">Quran, 17:85</p>
+</div>
+
+    <div class="blog-content blog-one complex-soul-post">
+    <p class="blog-text">In the last paper, I argued that consciousness cannot be explained by the brain alone, but requires both the brain and a non-material dimension for consciousness to emerge. In this paper, I want to go further with this understanding. Main two concepts that I will analyze in this paper are: Global Workspace Theory (GWT) and first-person givenness of the experience.  GWT refers to information becoming globally available for further decision-making, memory, behavior, or action. First-person givenness of the experience, however, refers to the fact that this conscious information is not given anonymously but from a "mine" or "me-ness" perspective.</p>
+
+  <p class="blog-text">In the coming chapters, I will first analyze Global Workspace Theory (GWT). I will argue that GWT gives a strong account of the "how" question: how information becomes conscious, reportable and available for further cognitive use. However, I will also argue that GWT remains weaker on the "why" question: why conscious information is experienced as mine in the first place. To show this limitation, I will turn to Schlicht's argument about "me-ishness" and Zahavi-Parnas' account of self-awareness.</p>
+
+  <p class="blog-text">Firstly, Dehaene and Naccache argue that there are three essential criteria for any consciousness theory to be met:</p>
+
+  <ul class="blog-text">
+
+    <li>Certain amount of information is processed unconsciously</li>
+
+  </ul>
+
+  <ul class="blog-text">
+
+    <li>Attention is prerequisite for consciousness</li>
+
+  </ul>
+
+  <ul class="blog-text">
+
+    <li>Consciousness seems to be required for certain cognitive tasks.</li>
+
+  </ul>
+
+  <p class="blog-text">According to the theory, a certain amount of information is processed unconsciously and does not require consciousness to be processed. As an example, they give the blindsight processing. Blindsight subjects are given stimuli to complete the task in their blind visual area, and they deny perceiving any stimuli. However, when they are forced to complete the task, they perform above chance while still denying any perception of stimuli (Dehaene &amp; Naccache, 2001, p. 5). Therefore, certain processing does not require consciousness to happen. Second, attention is a prerequisite of consciousness. Stimulus strength and duration matters but if attention is not given to the current processing, it might not become conscious. Mack and Rock studied inattentional blindness: subjects focus on a demanding visual task, while another visible stimulus appears elsewhere; because attention is occupied, many subjects fail to notice the stimulus even though it would normally be perceptible (Dehaene &amp; Naccache, 2001, p. 8). Third, consciousness seems to be required for certain cognitive tasks, such as novel combinations of operations, durable and explicit information maintenance, and spontaneous intentional behavior. (Dehaene &amp; Naccache, 2001, pp. 9-11).</p>
+
+  <p class="blog-text">=============================</p>
+
+  <p class="blog-text">After setting the empirical background, authors adopt the modularity of the mind as one theoretical postulate. Modularity of the mind means that the brain contains many specialized local processors. They are domain-specific and process particular kinds of information. Then, they suggest that unconscious processing can happen because of this modular structure of the brain because some modular systems are already adequately interconnected, automatized and specialized so that they can process information without consciousness. More often than not, complexity of the task is equated to its need for consciousness. Dehaene and Naccache disagree and claim that automaticity of the task might play a more important role than its complexity. They illustrate reading and 21-8 task to show that a simple task, solving 21 - 8 requires conscious effort while reading is often automatically processed. (Dehaene &amp; Naccache, 2001, pp. 12-13).</p>
+
+  <p class="blog-text">However, consciousness might be almost the opposite - - it appears to be non-modular. It might not be specialized or located in one area but may depend on the unification and integration of multiple areas. For instance, I see someone I have met before, and I tell my friend that I remember him and where I met him. This experience alone covers perception, memory, language, and report. This suggests that the brain needs a global system, a global unified system of consciousness. It should be a distributed system with long-distance connections because its function is to connect specialized modules or processors, allow information sharing between them, make information globally available, and support conscious access. Authors call this the global neuronal workspace. (Dehaene &amp; Naccache, 2001, pp. 13–14). There are five major categories involved:</p>
+
+  <ul class="blog-text">
+
+    <li>Perceptual circuits</li>
+
+  </ul>
+
+  <ul class="blog-text">
+
+    <li>Motor circuits</li>
+
+  </ul>
+
+  <ul class="blog-text">
+
+    <li>Long-term memory circuits</li>
+
+  </ul>
+
+  <ul class="blog-text">
+
+    <li>Evaluation circuits</li>
+
+  </ul>
+
+  <ul class="blog-text">
+
+    <li>attentional/top-down circuits</li>
+
+  </ul>
+
+  <p class="blog-text">Conscious content arises when information from these circuits becomes globally available through the workspace.</p>
+
+  <p class="blog-text">====================================</p>
+
+  <p class="blog-text">We have the empirical background and we also discussed what brain areas might be involved. Now, the natural question is: how does information become globally available in the theory? Attention seems to play an essential role in making information globally available. Many brain circuits can be active and process information while remaining unconscious. The authors argue that top-down attentional amplification is the mechanism by which information can be mobilized into the global workspace and become conscious. High-level mechanisms (such as goals, task instructions, expectations or attention), influence low-level processing mechanism (visual, auditory processing) according to the goal. For instance, looking for your friend in the crowd, your high-level goal narrows down visual processing to look for certain facial shape, skin tone, hairstyle and similar details. This is the temporary recruitment of local processors into a global network; it is called dynamic mobilization. From this description, and description, it might make one think that there is a certain actor who is controlling all of this. The authors disagree and reject this homunculus interpretation. They also argue that the global workspace is not a precise, fixed, tangible brain area but a distributed system of long-distance connected networks. For attention to bring information into the global workspace, many neural patterns compete, and the selected pattern becomes amplified and globally available as a conscious state. In addition, ongoing activity alone is not enough; the activity must be amplified and maintained long enough to become accessible to multiple other processes.</p>
+
+  <p class="blog-text">===============================</p>
+
+  <p class="blog-text">The authors have shown us the mechanism, conditions which make information conscious; now, we move into discussing empirical consequences and predictions of the mechanisms. Information can be either permanently or temporarily inaccessible to consciousness. First, let's follow the paper and discuss the permanent inaccessible info, what makes information accessible to the consciousness. There are two structural criteria, if we follow the authors' argument, for information to have conscious access:</p>
+
+  <ul class="blog-text">
+
+    <li>active representation</li>
+
+  </ul>
+
+  <ul class="blog-text">
+
+    <li>bidirectional connectivity with workspace neurons</li>
+
+  </ul>
+
+  <p class="blog-text">Missing either criteria would make information permanently inaccessible to consciousness. Therefore, information must be actively represented and bidirectionally connected to workspace neurons. (<em>*Dehaene &amp; Naccache (2001, pp. 15</em>*)</p>
+
+  <p class="blog-text">Active representation is really important because it helps us to exclude a lot of information present in nervous system from consciousness. For instance, I might hear a sound and perceive its location consciously but I will not consciously perceive how my nervous system computes that location or what auditory mechanisms are being used. (<em>*Dehaene &amp; Naccache (2001, pp. 15–16)</em>*)</p>
+
+  <p class="blog-text">There is one partial exception to this limit on introspection: slow, deliberate reasoning. However, information can be actively represented and still remain unconscious. It needs bidirectional connectivity with the global workspace. Local processors send bottom-up signals to the workspace, and the workspace sends back top-down amplification. Local activity then becomes stronger and more stable, while also helping maintain workspace activation. In this way, the loop becomes self-sustaining. (<em>*Dehaene &amp; Naccache (2001, p. 19)</em>*)</p>
+
+  <p class="blog-text">This explains how information is permanently unconscious. Information can be temporarily unconscious as well. The reason is that they might be too weak, too brief, too unstable, insufficiently amplified. In other words, a stimulus may pass the first threshold needed for unconscious processing, but fail to pass the second threshold needed for conscious access. Masked priming, which we saw earlier, can be an example of temporarily unconscious information. It is still processed and might affect future behavior. (<em>*Dehaene &amp; Naccache (2001, pp. 18-20)</em>*)</p>
+
+  <p class="blog-text">=====================================</p>
+
+  <p class="blog-text">Next point is the consciousness threshold. Conscious access has two thresholds:</p>
+
+  <ul class="blog-text">
+
+    <li>First threshold: minimum stimulus duration and intensity needed to create differentiated neural activity. If a stimulus passes this threshold, then the brain can process the stimulus unconsciously.</li>
+
+  </ul>
+
+  <ul class="blog-text">
+
+    <li>Second threshold: the stimulus needs to remain strong and stable for enough time to activate a self-sustained loop between processor units and workspace units. If it passes this threshold, then it becomes consciously accessible.</li>
+
+  </ul>
+
+  <ul class="blog-text">
+
+    <li>Failure to pass the second threshold explains the masked priming effect. The masked prime can still be processed unconsciously, but it does not become reportable or consciously available (Dehaene &amp; Naccache, 2001, pp. 18–20).</li>
+
+  </ul>
+
+  <p class="blog-text">The authors distinguish between two types of brain-imaging studies: studies of the contents of consciousness and studies of the mechanisms of consciousness. Studies of contents might cover different brain areas, depending on the specific content. However, studies of underlying mechanisms seem to point to a more general mechanism of coherent brain-scale mobilization. The example given in the paper is the fusiform face area (FFA). It is active when subjects consciously perceive faces, and it also changes its activation during binocular rivalry tasks, depending on whether the subject consciously perceives a face. This area is therefore strongly linked to conscious face perception, although the authors also note that it may not be entirely specific to faces (Dehaene &amp; Naccache, 2001, pp. 22–23). However, content-processing areas of the brain are specific and local. They may encode the content, but in order to make it consciously accessible, they need to be mobilized into the wider workspace mechanism.</p>
+
+  <p class="blog-text">Then, the question is: what areas of the brain might be involved in the underlying mechanism of conscious access? The authors suggest that the prefrontal cortex (PFC) and anterior cingulate (AC) play a major role in the conscious workspace. Generally, these areas are involved in effortful tasks, novel tasks, error detection, conflict resolution, strategy change, and intentional control. However, before continuing, we must keep in mind that the authors are not arguing that PFC and AC are the areas where consciousness exists or arises. Rather, they are saying that these two areas seem to be major hubs in the distributed workspace. Early brain-imaging studies, even if this was not their purpose, involved effortful tasks. These tasks often required conscious effort to complete. A common finding from these studies is that PFC and AC were strongly activated during task performance. Interestingly, once tasks became automatic, activation in these areas decreased, and activation increased again when new rules or novel items were introduced. The main conclusion is that PFC and AC are strongly involved when conscious effort is required, and their activation decreases when tasks become automatic (Dehaene &amp; Naccache, 2001, pp. 24–25).</p>
+
+  <p class="blog-text">One important example given is to give all subjects the same tasks and stimuli, and later divide them into groups who became aware of the patterns and those who did not. This allowed researchers to compare conscious and unconscious processing while keeping the task the same. The study found that subjects who became aware of the relation between auditory and visual stimuli showed strong PFC activation. Also, the functional correlation between their PFC areas and distant brain regions increased. The distant areas involved were contralateral PFC, sensory association cortices, and cerebellum. Long-distance coherence appeared when subjects became conscious and used the knowledge for further behavior. This supports the workspace model because it suggests that conscious access involves large-scale coordination between distant brain areas (Dehaene &amp; Naccache, 2001, p. 25).</p>
+
+  <p class="blog-text">We are shown that long-distance coherence and connection are essential for the workspace model. Now, the authors suggest a potential anatomy of that coherence and connection. Dehaene, Kerszberg, and Changeux suggest that long-range cortical connections often originate from pyramidal neurons in cortical layers 2 and 3. These layers are present throughout the cortex, but are especially thick in dorsolateral prefrontal cortex and inferior parietal cortex. Goldman-Rakic suggests dense long-distance reciprocal connections linking dorsolateral PFC with premotor cortex, superior temporal cortex, inferior parietal cortex, anterior cingulate, posterior cingulate, neostriatum, parahippocampal formation, and thalamus (Dehaene &amp; Naccache, 2001, pp. 26–28).</p>
+
+  <p class="blog-text">These are important because the workspace must coordinate perception, attention, action, memory, and evaluation. The conscious workspace is therefore anatomically distributed, which means major systems are involved and have specific roles in contributing to conscious access. Let’s look at them:</p>
+
+  <p class="blog-text">1. Temporal and parietal circuits</p>
+
+  <p class="blog-text">1. provide high-level perceptual categorizations</p>
+
+  <p class="blog-text">2. help identify what is present in the environment</p>
+
+  <p class="blog-text">2. Premotor, supplementary motor, posterior parietal, basal ganglia, cerebellum, and speech-production circuits</p>
+
+  <p class="blog-text">1. allow intentional guidance of actions</p>
+
+  <p class="blog-text">2. allow verbal and non-verbal report</p>
+
+  <p class="blog-text">3. Hippocampal region</p>
+
+  <p class="blog-text">1. helps store and retrieve long-term information</p>
+
+  <p class="blog-text">2. connects present conscious states with memory</p>
+
+  <p class="blog-text">4. Orbitofrontal cortex, anterior cingulate, hypothalamus, amygdala, striatum, and neuromodulatory nuclei</p>
+
+  <p class="blog-text">1. help compute the value and relevance of current representations</p>
+
+  <p class="blog-text">2. connect conscious contents with emotion, reward, motivation, and previous experience</p>
+
+  <p class="blog-text">5. Parietal and cingulate areas</p>
+
+  <p class="blog-text">1. contribute to attentional gating</p>
+
+  <p class="blog-text">2. shift the focus of interest</p>
+
+  <p class="blog-text">Each system can operate partly without consciousness, but their coherent activity and strong interconnection correspond to the mobilization of conscious content into the workspace (Dehaene &amp; Naccache, 2001, pp. 26–28). The authors try to answer some philosophical questions as well. For instance, they suggest that the workspace model may help explain philosophers’ intuitions about qualia by treating conscious contents as highly complex, dynamic, multi-layered states. I would disagree with this. Even if GWT explains why conscious contents are complex, dynamic, and difficult to describe, it still does not explain why these contents are experienced as mine. Even when Dehaene and Naccache discuss the sense of self near the end of the paper, they treat it mainly as the integration of self-related representations into the workspace, which still leaves the first-personal givenness of experience unexplained. Therefore, in the second part, we will turn to Zahavi-Parnas and Schlicht’s arguments on “me-ishness.”</p>
+
+  <p class="blog-text">I would suggest to look at Zahavi and Parnas' arguments, then to analyze Schlicht's non-conceptual awareness. Zahavi and Parnas do not deny that consciousness may have physical or neural causes, but they argue that any explanation must first take the first-personal structure of experience seriously. However, they are asking: how is consciousness already given as mine in the first place? They analyze especially Armstrong’s higher-order perception theory and Rosenthal’s higher-order thought theory and consider their suggestions seriously. However, their problem is that they try to explain consciousness by making one mental state the object of another mental state, but this still does not explain why the first-order state is given as mine? They suggest standard for any theory of consciousness. Any theory of consciousness must distinguish:</p>
+
+  <ul class="blog-text">
+
+    <li>intentionality</li>
+
+  </ul>
+
+  <ul class="blog-text">
+
+    <li>self-awareness</li>
+
+  </ul>
+
+  <p class="blog-text">Intentionality - consciousness is directed toward an object. Self-awareness means that consciousness is given to itself in the very experience. Representationalist theories mistakenly model self-awareness on object-awareness. They are giving example of knife model and flame model of consciousness. The knife model treats consciousness as able to be aware of objects but not itself, just as a knife can cut other things but not itself. On this view, consciousness becomes aware of itself only through a later higher-order act. The flame model treats consciousness as self-luminous: like a flame, it illuminates other things while also illuminating itself. However, they are not denying the "reflective" self even if they are suggesting that there is pre-reflective awareness. Reflective awareness is possible, but it presupposes pre-reflective awareness. Reflective awareness is explicit, thematic, objectifying, conceptual while pre-reflective awareness is implicit, non-objectifying, non-conceptual, non-propositional, first-personal. I would give personal example. Yesterday, SA Spurs lost to NY Knicks. I supported Wembanyama individually so I expected Spurs to win. However, we lost by a point. I was disappointed and sad for a while, then I asked myself why I am disappointed, how I should deal with the feeling and to move on. Zahavi and Parnas are arguing that the first given disappointment is pre-reflective and already given as mine, first-personal regardless of the later explicit self-introspection. Later reflection might help me to analyze but I already had a first-person given experience. They also argue against the idea that treating self-awareness as intrinsic or phenomenological stops further analysis. For them, phenomenology does not end inquiry; it allows us to analyze the structure of experience more precisely. Zahavi and Parnas seem to suggest that we can still analyze, explore its structure phenomenologically.</p>
+
+  <p class="blog-text">GWT explained that consciousness becomes accessible through information’s access to the global workspace, through amplification, and by being made available for further action. It explained conscious access thoroughly and in detail. This is an exceptional, well-thought answer to the “how” question. However, we still have the “why” question. I think Zahavi and Parnas rightly argue that it does not explain why there is first-person, mineness experience, or how it is given to us within experience.</p>
+
+  <p class="blog-text">At the end of the paper, Dehaene and Naccache seem to suggest that this first-person given experience can also be explained through GWT, as if it might be only highly complex, rich, multi-layered processing. I would disagree and suggest that GWT’s limit is the “how” question, and that it does not answer the “why” question. The experience of “mineness” is not exhausted by the mechanisms of the brain. It is a pre-reflective feature that comes within conscious experience itself. The brain acts as the interface of this phenomenological conscious experience of “mineness” and as the underlying base for it.</p>
+
+  <p class="blog-text">Generally, I am very skeptical of physical and materialistic explanations of consciousness, though I think the brain is an important part of consciousness. However, GWT was more convincing than I expected. I strongly agree with GWT and its answer to the “how” question. I think it is one of the closest explanations to what Chalmers calls the “easy problems” of consciousness. There must be a workspace that connects the mechanisms of information processing and perception, holding them together as a single, unified system. The brain’s physical ability to do this can be understood as its role as an interface for consciousness.</p>
+
+  <p class="blog-text">However, Zahavi and Parnas remind us that this is not enough. The central question is still open: how is this experience possible as experience, and why is it given as mine? I think this question marks the limit of GWT. Beyond this point, as Zahavi and Parnas suggest, we should not only look for neural or functional explanations, but also for phenomenological answers that analyze the first-personal structure of experience.</p>
+
+
+  <h2 class="blog-header">Sources</h2>
+  <ol class="blog-text sources-list">
+    <li><b>Stanislas Dehaene and Lionel Naccache</b>. “Towards a cognitive neuroscience of consciousness: basic evidence and a workspace framework.” <em>Cognition</em>, Vol. 79, 2001, pp. 1–37.</li>
+    <li><b>Dan Zahavi and Josef Parnas</b>. “Phenomenal Consciousness and Self-Awareness: A Phenomenological Critique of Representational Theory.” <em>Journal of Consciousness Studies</em>, Vol. 5, No. 5–6, 1998, pp. 687–705.</li>
+    <li><b>Avicenna</b>. Floating Man argument, discussed in relation to inner subjective awareness.</li>
+  </ol>
+
+  <p class="blog-text">Seoul, Korea</p>
+  <p class="blog-text">12/06/2026</p>
+    </div>
+  </div>
+
+  <script src="../blog-theme.js"></script>
+</body>
+</html>
