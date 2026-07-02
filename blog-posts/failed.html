@@ -16,17 +16,47 @@
       box-sizing: border-box;
     }
 
+    .failure-hero {
+      width: min(1040px, calc(100% - 48px));
+      margin: 4.75rem auto 2.75rem;
+    }
+
+    .failure-hero img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      max-height: 620px;
+      object-fit: cover;
+      object-position: center 34%;
+      border: 1px solid var(--grid);
+      filter: saturate(0.92) contrast(1.04);
+    }
+
+    .failure-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 10px;
+      line-height: 1.5;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
     .complex-soul-post {
-      max-width: 900px;
-      width: min(900px, calc(100% - 32px));
+      max-width: 720px;
+      width: min(720px, calc(100% - 48px));
       margin-left: auto;
       margin-right: auto;
     }
 
 .complex-soul-title-wrap {
-  max-width: 1100px;
-  width: min(1100px, calc(100% - 32px));
-  margin: 4.75rem auto 3rem auto;
+  max-width: 760px;
+  width: min(760px, calc(100% - 48px));
+  margin: 0 auto 2.75rem auto;
   padding: 0;
   box-sizing: border-box;
   text-align: center;
@@ -37,14 +67,14 @@
   white-space: normal;
 }
 .complex-soul-title {
-  margin: 0 auto 24px;
+  margin: 0 auto 20px;
   padding: 0;
   color: var(--ink);
   font-family: var(--serif);
-  font-size: clamp(44px, 4.8vw, 72px);
+  font-size: clamp(52px, 5.8vw, 86px);
   font-weight: 400;
   letter-spacing: -2px;
-  line-height: 1.05;
+  line-height: 0.96;
   text-align: center;
 }
    .complex-soul-title span {
@@ -64,6 +94,22 @@
       text-transform: uppercase;
     }
 
+    .blog-content.failed-post > .blog-text:first-of-type {
+      font-size: 18px;
+      line-height: 1.78;
+    }
+
+    .blog-content.failed-post > .blog-text:first-of-type::first-letter {
+      float: none;
+      padding: 0;
+      color: inherit;
+      font-family: inherit;
+      font-size: inherit;
+      font-style: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+    }
+
     @media (max-width: 900px), (max-device-width: 900px) {
       body {
         overflow-x: hidden;
@@ -76,12 +122,34 @@
         overflow-x: hidden;
       }
 
+      .failure-hero {
+        width: 100%;
+        margin: 1.25rem 0 2rem;
+      }
+
+      .failure-hero img {
+        aspect-ratio: 4 / 5;
+        max-height: none;
+        object-position: center top;
+      }
+
+      .failure-caption {
+        display: block;
+        margin-top: 8px;
+        font-size: 9px;
+        letter-spacing: 1.2px;
+      }
+
+      .failure-caption span {
+        display: block;
+      }
+
       .complex-soul-title-wrap {
         position: static;
         left: auto;
         width: 100%;
         max-width: 100%;
-        margin: 1.5rem 0 2.25rem;
+        margin: 0 0 2rem;
         padding: 0;
         transform: none;
       }
@@ -115,6 +183,22 @@
         overflow-wrap: break-word;
       }
 
+      .blog-content.failed-post > .blog-text:first-of-type {
+        font-size: 17px;
+        line-height: 1.72;
+      }
+
+      .blog-content.failed-post > .blog-text:first-of-type::first-letter {
+        float: none;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        font-size: inherit;
+        font-style: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+      }
+
       .complex-soul-post .sources-list {
         padding-left: 1.25rem;
       }
@@ -135,14 +219,18 @@
 </div>
 <!-- Blog -->
 <div id="blog">
+<figure class="failure-hero">
+<img src="kobe-final.jpg" alt="Kobe Bryant walking off the court after a championship game">
+
+</figure>
 <div class="complex-soul-title-wrap"><h1 class="complex-soul-title"><span>I Failed</span></h1><p class="title-note">Wish I could take it back to the beginnin' <br>
 I coulda bought a place in DUMBO before it was DUMBO <br>
 For like 2 million <br>
 That same building today is worth 25 million <br>
 Guess how I'm feelin'? Dumbo <br> <br> 
 Jay-Z, 'Story of OJ'</p></div>
-<div class="blog-content blog-one complex-soul-post">
-      <p class="bloged-text">I feel desperate and disappointed. It feels so bitter. <br> <br> <br>
+<div class="blog-content blog-one complex-soul-post failed-post">
+      <p class="blog-text">I feel desperate and disappointed. It feels so bitter. <br> <br> <br>
 I had an exam today, a coding exam. I coded the exam tasks, saved the file, but forgot to submit it on time. I worked on the details too much and didn't make it in time. <br> <br> <br>
 
 I can't stop thinking about it. I feel so bad. I did everything properly except manage the time. It feels mind-breaking. I can't. <br> <br> <br>
