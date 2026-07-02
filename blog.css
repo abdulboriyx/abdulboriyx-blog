@@ -477,6 +477,14 @@ h2.blog-header,
   font-weight: 400;
   line-height: 1.7;
 }
+.blogged-text {
+  margin: 0 0 20px;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+}
 
 .blog-content > .blog-text:first-of-type::first-letter {
   float: left;
