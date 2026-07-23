@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="img/x-icon" href="../img/logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/7bc36397e6.js" crossorigin="anonymous"></script>
+  <title>Who am I?: I did not choose me but I must become me</title>
+  <link rel="stylesheet" href="../blog.css">
+  <style>
+    #blog {
+      box-sizing: border-box;
+    }
+
+    .complex-soul-post {
+      max-width: 900px;
+      width: min(900px, calc(100% - 32px));
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .complex-soul-title-wrap {
+      position: relative;
+      left: 50%;
+      width: min(1050px, calc(100vw - 4rem));
+      max-width: 1050px;
+      margin: 4.75rem 0 3rem 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-align: center;
+      transform: translateX(-50%);
+    }
+
+    .complex-soul-title {
+      margin: 0 0 24px;
+      padding: 0;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: clamp(42px, 4.2vw, 60px);
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -1.8px;
+      line-height: 1;
+    }
+
+    .complex-soul-title span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .blog-epigraph {
+  max-width: 760px;
+  width: min(760px, calc(100% - 32px));
+  margin: -1rem auto 3rem;
+  text-align: center;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.55;
+  opacity: 0.86;
+}
+
+.blog-epigraph p {
+  margin: 0;
+}
+
+.blog-epigraph-source {
+  margin-top: 0.85rem !important;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-style: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+    .title-note {
+      margin: 0.9rem 0 0;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 2px;
+      line-height: 1.5;
+      opacity: 0.72;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px), (max-device-width: 900px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      body:not(.blog-index) #blog {
+        width: 100%;
+        max-width: 100%;
+        padding: 96px 24px 64px;
+        overflow-x: hidden;
+      }
+
+      .complex-soul-title-wrap {
+        position: static;
+        left: auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 1.5rem 0 2.25rem;
+        padding: 0;
+        transform: none;
+        text-align: center;
+      }
+
+      .complex-soul-title {
+        font-size: clamp(2rem, 8.5vw, 2.25rem);
+        letter-spacing: -0.9px;
+        line-height: 1.08;
+      }
+
+      .complex-soul-title span {
+        white-space: normal;
+      }
+      .blog-epigraph {
+  width: 100%;
+  max-width: 100%;
+  margin: -0.5rem 0 2.25rem;
+  font-size: 16px;
+  text-align: left;
+}
+
+.blog-epigraph-source {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+     .title-note {
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.55;
+        text-align: center;
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }
+
+      .complex-soul-post {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .complex-soul-post .blog-text,
+      .complex-soul-post .sources-list {
+        overflow-wrap: break-word;
+      }
+
+      .complex-soul-post .sources-list {
+        padding-left: 1.25rem;
+      }
+    }
+
+    .essay-poem {
+      margin: 1.75rem 0 2rem;
+      padding: 0.4rem 0 0.4rem 1.4rem;
+      border-left: 3px solid color-mix(in srgb, var(--ink) 35%, transparent);
+      font-family: var(--serif);
+      font-size: 19px;
+      font-style: italic;
+      line-height: 1.75;
+    }
+
+    .essay-poem p {
+      margin: 0;
+    }
+
+    @media (max-width: 900px), (max-device-width: 900px) {
+      .essay-poem {
+        font-size: 17px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div id="navbar">
+    <div class="navbar-container">
+      <a class="name-blog" href="../index.html">abdulboriyx</a>
+      <ul class="navbar-list">
+        <li class="navbar-list-list"><a href="https://x.com/abdulboriyx19">About</a></li>
+        <li class="navbar-list-list"><a href="/learning/">Studies</a></li>
+        <li class="navbar-list-list"><a class="link-logo" href="../index-ko.html">Korean</a></li>
+        <li class="navbar-list-list"><a class="link-logo" href="../index-ru.html">Russian</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Blog -->
+  <div id="blog">
+    <div class="complex-soul-title-wrap">
+      
+      <h1 class="complex-soul-title">
+        <span>Who am I?: I did not choose me</span>
+        <span>but I must become me</span>
+      </h1>
+      <p class="title-note">I received a low grade in my Philosophical Anthropology course because of my classroom attitude and behavior. All I did was leave for the restroom once or twice during class, and I strongly suspect that I have ADHD.
+
+I asked the professor for feedback on my midterm assignment, an essay titled “Who Am I?” She explained that my low overall grade was due to my classroom behavior, while the essay itself received 30/30.
+
+I wanted to share it here. Below is the full essay.</p>
+
+    </div>
+
+<div class="blog-content blog-one complex-soul-post">
+
+<p class="blog-text">One of my favorite poetry lines is:</p>
+
+<blockquote class="essay-poem">
+<p>God, my confession is yours,<br>
+But who am I if I do not go to war,<br>
+There is opportunity living in loss,<br>
+I discover myself when I fall short.</p>
+</blockquote>
+
+<p class="blog-text">These lines intersect many essential topics that I am interested in and deeply curious about: God, selfhood, war (here, it is used as war against oneself, one&#x27;s &quot;lower self&quot;). But the most essential thesis they open up is: are we fixed creatures or do we discover ourselves continually and consistently through experience? In either case, who are we? I am deeply passionate about consciousness, its nature, what it is, and how it arises. The assignment is directly related to this topic and I was excited when I saw its title. In this paper, I argue that there is a stable basis of selfhood, which I understand as an embodied, first-person and soul-bearing existence grounded in God. However, this does not mean that the whole self is already fixed and completed. Who I become is continually revealed and formed through my choices, relationships, failures, suffering and relation to God. When we learnt about Jaspers, he offered us the perspective that when we talk about our &quot;selfhood,&quot; we often answer the &quot;what&quot; questions, such as what is my name, what do I do, what is my nationality, what is my race, religion and what not. However, the answers to these &quot;what&quot; questions regarding identity are either changeable, such as name, occupation and religion, or socially constructed, such as nationality and race. I would give a personal example here. My friends in my country know me as &quot;Abdulboriy,&quot; which is my name, but all of my foreign friends know me as &quot;Abdul,&quot; which is a shortened version of my name. If my name were the foundational part of my selfhood, would it not be much harder to change and define me? It would be foolish to dismiss these identities just because they are changeable or socially constructed. Socially constructed does not mean unreal, and these identities deeply shape the person one becomes. When people began knowing me mainly as &quot;Abdul,&quot; I did not become a different subject, but the way I was seen and how I presented myself changed. These identities shape my relationships, opportunities, shame and self-understanding. However, they do not exhaust the self or form its ultimate foundation. Even after some of them change, I still seem to keep a deeper existential self. Sartre&#x27;s famous keyhole thought experiment makes this point more complicated. Through the gaze of another, I become aware of myself as someone visible and judgeable to another person. External identities therefore partly shape my being-for-others and play an essential role in social life. However, although they shape the person I become, I do not think they are the ultimate foundation of my existence. If externally observable identities, identity labels and answers to the &quot;what&quot; questions regarding the self can be doubted and stripped away, the question is what remains. What is the thing remaining? Beyond these external identities, I think I can doubt my relationships, beliefs, values, memory and reality. What if my brain is in a vat and some evil demon is simulating my subjectivity or reality? I cannot be sure that this is not the case. Then, can I believe my memory? I cannot remember every single moment of my life. Elizabeth Loftus and Pickrell&#x27;s &quot;Lost in the Mall&quot; study gives strong evidence for doubting absolute trust in memory because it shows that remembering is an act of reconstruction rather than passive retrieval. My reality might be simulated, and I might not be able to rely on my memory all the time or believe it absolutely. However, all of this involves one thing: thinking and doubting are happening. I can doubt everything, and yet I cannot doubt one thing and strip it away: that I exist while I am doubting. This is Descartes&#x27;s famous line of modern philosophy, &quot;Cogito, ergo sum&quot;, I think, therefore I am. I can doubt even the most essential things and the closest concepts in my life. I can even doubt my body, but I cannot doubt that thinking or doubting is occurring, because the act of doubt itself requires at least a minimal thinking subject. This establishes my existence at the moment of thought, although whether it proves an enduring self remains disputed. It does not yet prove my whole subjectivity or my identity across my entire life. It only shows that there is at least a minimal thinking self which I cannot deny while thinking. Now, after finding what cannot be doubted, the question is how this self reveals itself in my existence. What is myself, or who is myself? My existence is not merely an abstract fact about subjectivity. It appears in a certain way: through a subjective, first-person perspective. I experience things happening to me, and they are given as mine. I cannot experience another person&#x27;s subjective experience from their first-person perspective, just as they cannot experience mine. Anxiety, pain, love, shame and the anticipation of death are all given from a first-person view. Regardless of how much I try to empathize, I cannot experience them in exactly the same way as the person who lives through them. Anxiety, pain and death seem to be the clearest cases revealing our first-person existence. First, anxiety. Heidegger suggests that in anxiety, ordinary and familiar meanings can collapse. The world becomes strange, and I cannot protect myself completely with social roles, routines and ordinary meanings. I have to exist as this particular person and face my own possibilities. Although my partner, children or parents might empathize with me and become anxious about my condition, their experiences do not become the same as mine, and vice versa. The familiar meanings of my world may collapse for me without collapsing for them in the same way. Anxiety therefore shows one dimension of selfhood through its personal and first-person character. Second, pain. Pain opens up our fundamental subjectivity because it is experienced from within our embodied existence. For example, I can be deeply empathetic, anxious and nervous about my partner&#x27;s childbirth. However, even if I wished to take her pain upon myself, I could not experience it in exactly the way she does. I cannot replace her pain experience with mine. This reveals another dimension of subjectivity: our selfhood is not merely in abstract thought or feeling; it is embodied and lived through the body. Lastly, Heidegger says that we are beings-toward-death. Death is the most unavoidable and non-transferable possibility that every human being faces. I cannot experience my completed death and then report it. However, being-toward-death reveals that I am a finite being whose existence cannot be lived by another person in my place. Someone can die for me through sacrifice or protection, but this does not remove my mortality or die my death for me. Death therefore reveals the most personal and irreplaceable possibility of my existence. We have examined that there is a fundamental, undoubted existence which appears as embodied, first-person subjectivity. Now, what is it? Is it reducible to our body or brain, or does it point to a deeper principle of selfhood? We have discussed first-person experience and how it cannot be transferred to others. Are these experiences the foundational basis of the self? Experiences are felt within ourselves and they are embodied. However, I do not think our fundamental subjective existence can be reduced to bodily properties or temporary mental states. I would suggest examining Avicenna&#x27;s &quot;Floating Man&quot; thought experiment to explore this point. Avicenna asks us to imagine a man suspended in the air, disconnected from external sensations and unaware of his bodily parts. Even without sensing his body, Avicenna suggests that the man would still affirm his own existence. Avicenna does not necessarily prove that the self can exist independently without the body, and my own criticism is that he gives too little importance to embodiment. Yet, the experiment still suggests that self-awareness is not identical with sensory awareness of bodily parts. The man does not experience his body as an object, but he still remains aware of himself. Although it does not directly point to the soul, David Chalmers&#x27;s philosophical zombie challenges reductive physicalism as well. Imagine a philosophical zombie which possesses the same physical and functional properties as a human being. By definition, the zombie would lack phenomenal experience even though it possesses our physical and functional organization. The controversial question is whether such a being is genuinely metaphysically possible rather than merely imaginable. Therefore, the zombie argument does not settle the issue, but it challenges the claim that physical and functional descriptions clearly and completely explain consciousness. Considering all of these, I think subjective experience cannot be given from a neutral or impersonal standpoint. It is always given from a first-person perspective. My mental states change across different periods, yet these changing experiences continue to be experienced as mine. This shows unity within experience, but it does not by itself prove that the &quot;I&quot; remembering yesterday is numerically the same subject as the &quot;I&quot; experiencing today. In fact, the reconstructive nature of memory makes this problem more serious. Memory can connect my present self to my past, but it can also be incomplete or distorted. Still, I experience my past actions, memories and present thoughts as belonging to one continuing life, and I take responsibility for them as mine. This continuity is not strict proof of one numerically identical soul across time. It might be explained through memory, causal continuity or an embodied psychological system. Nevertheless, I understand an enduring subject as the most convincing explanation because these connections are consistently experienced as belonging to one life. Therefore, I do not think the self can be reduced to bodily properties or temporary mental states. I think this conclusion points toward the soul. Therefore, I think that human beings possess a soul which gives the basis for our subjective, first-person experience. However, there can be a serious objection to this conclusion. David Hume argues that when he looks within himself, he does not find any permanent self or soul but only changing perceptions, feelings, thoughts and sensations. From this perspective, what I call the &quot;self&quot; might be only the collection or continuity of these changing mental states rather than a separate soul which possesses them. This criticism is important because I cannot directly observe my soul in the same way as I observe my body or mental states. However, I would respond that the self does not have to appear as another object among experiences. When I feel pain, anxiety, love or doubt, I do not first observe them as neutral events and then attach them to myself. They are immediately experienced as mine. Therefore, although Hume is right that we do not see the soul as an object inside ourselves, the first-person unity of changing experiences still points toward an enduring subject to whom these experiences are given. Still, I should admit that Avicenna&#x27;s Floating Man, Chalmers&#x27;s philosophical zombie and the first-person nature of experience do not deductively prove the existence of the soul. There can be other explanations such as non-reductive physicalism or emergent consciousness. Therefore, I cannot say that the soul is the only conclusion logically possible from these arguments. Rather, considering the continuity of selfhood, the first-person unity of experience and the limitations of purely physical explanations, I understand the soul as the most convincing explanation of the enduring subject of experience. The nature of the soul and how it connects with our body remains a question. Where does this soul come from? Is it self-constructed or given? Why does it even exist? I think there are two complementary explanations: a religious-existential one from Kierkegaard and a systematic metaphysical one from Avicenna. They answer different questions. Kierkegaard explains how an existing self becomes properly itself through relation to God, while Avicenna explains why a contingent self exists and what ultimately grounds it. First, Kierkegaard says that the self is not merely a fixed object or substance but a relation which relates itself to itself. Human beings exist within tensions such as the infinite and the finite, the temporal and the eternal, and freedom and necessity. We are finite because we have a body, limits, history and death. However, we also possess possibility, imagination, freedom and the ability to go beyond our present condition. The self is formed through relating these different parts to each other. However, Kierkegaard suggests that this relation did not establish itself. I did not decide to be born, give myself existence or create the fundamental conditions of my selfhood. I discover myself already existing and placed within conditions that I did not choose. Therefore, according to Kierkegaard, the self becomes fully itself when it relates itself to the power that established it, which is God. If the self refuses this dependence and tries to construct itself completely through its own power, it falls into despair. In this sense, despair is not only sadness but a broken relation within the self and between the self and its source. Kierkegaard&#x27;s explanation is religious-existential rather than a universally conclusive proof of God. He does not deductively prove that God exists. Instead, he explains that human selfhood is dependent, divided and unable to completely ground itself, and that it becomes whole by recognizing the power that gave it existence. From this perspective, my selfhood is not self-created or absolutely independent. I am a self who exists through relation to God and becomes more truly myself by acknowledging this relation. Second, there is Avicenna&#x27;s systematic metaphysical argument about God and the self&#x27;s relation to God. He argues that there are contingent beings and the Necessary Existent. Contingent beings can exist or not exist. I exist, but I might not have existed. I did not cause my own existence, and my existence depends on conditions outside myself. A contingent being therefore cannot fully explain its own existence. If every being were contingent, then every being would remain dependent on something else. Even an infinite number of dependent beings would not explain why they exist at all. Therefore, there must be an ultimate ground whose existence is not received from another. This is the Necessary Existent. It must exist and cannot fail to exist. It is uncaused and is the ultimate ground of all contingent beings. Avicenna also argues that the Necessary Existent must be one. If there were two, they would have to differ in some way. But whatever made them different would limit them or make them depend on some distinguishing feature. A being that depends on limitation or composition would not be necessary through itself. Therefore, the Necessary Existent must be one. Avicenna identifies this Necessary Existent as God. Considering all of these, I think that the soul is a contingent being whose existence is ultimately grounded by the Necessary Existent, which is God. Now, if I go back to the main question of our assignment, who am I? We differentiated between &quot;what&quot; and &quot;who&quot; questions, examined external identities which shape us without forming the ultimate foundation of our existence, doubted what remained, and found a minimal thinking existence. Then we examined how this existence appears as embodied, first-person subjectivity and asked what might ground it. Now I can return to the main question opened by the poetry lines: are we fixed creatures or do we continually discover ourselves through experience? I think both sides contain some truth. There is a stable basis of my existence because I experience changing names, roles, beliefs, emotions and mental states as parts of one continuing life. I understand this stable basis as the soul. However, this does not mean that my whole self is already completed and fixed from the beginning. Who I become is continually revealed and formed through my choices, relationships, anxiety, pain, love, failure and relation to God. Living abroad and being known by a shortened name already showed me that some aspects of identity can shift while I continue to experience myself as the same person. At the same time, these changes shape how I understand and present myself. Therefore, I do not create myself from nothing, but I also do not merely discover a fully finished self hidden inside me. I possess a stable ground of selfhood, while my concrete identity is continually disclosed through how I respond to life. In this sense, I discover myself when I fall short because failure reveals my limits, values, desires and the direction in which I must become. The &quot;war&quot; against the lower self is therefore not a war against a completely foreign being. It is the struggle through which I confront the parts of myself that resist the person I believe I should become. Through this struggle, I do not create my existence, but I disclose my character and shape the direction of my life. Reasoning through all of these and considering the available possibilities, I think I am an embodied, first-person subject whose enduring ground is the soul, whose existence is grounded in God, and whose concrete identity is continually disclosed through how I live.</p>
+
+<h2 class="blog-header">Sources</h2>
+
+<ol class="blog-text sources-list">
+
+<li>Avicenna, Floating Man — <a href="https://en.wikipedia.org/wiki/Floating_man" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Floating_man</a></li>
+
+<li>Descartes, Cogito, Ergo Sum — <a href="https://en.wikipedia.org/wiki/Cogito,_ergo_sum" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Cogito,_ergo_sum</a></li>
+
+<li>David Chalmers, Philosophical Zombie — <a href="https://en.wikipedia.org/wiki/Philosophical_zombie" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Philosophical_zombie</a></li>
+
+</ol>
+
+      <p class="blog-text">Seoul, Korea</p>
+      <p class="blog-text">July 2026</p>
+    </div>
+  </div>
+
+  <script src="../blog-theme.js"></script>
+</body>
+</html>
